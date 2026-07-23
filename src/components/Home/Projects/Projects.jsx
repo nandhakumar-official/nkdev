@@ -50,7 +50,7 @@ const Projects = () => {
       // FIX: Outcome chips replace feature bullet list
       outcomes: [
         "OCR + manual fallback",
-        "EN / ES / HI i18n",
+        "EN / ES / ZH / AR / FR / DE i18n",
         "Digital signatures",
         "8+ step form state",
         "Pre & post-payment",

@@ -2,9 +2,16 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
+import "./Contact.css";
 const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({
     name: "",
     email: "",
     subject: "",
@@ -23,51 +30,151 @@ const Contact = () => {
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
+    const { id, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+
+    let error = "";
+
+    switch (id) {
+      case "name":
+        error = validateName(value);
+        break;
+
+      case "email":
+        error = validateEmail(value);
+        break;
+
+      case "subject":
+        error = validateSubject(value);
+        break;
+
+      case "message":
+        error = validateMessage(value);
+        break;
+
+      default:
+        break;
+    }
+
+    setErrors((prev) => ({
+      ...prev,
+      [id]: error,
+    }));
+  };
+
+  const validateName = (name) => {
+    const value = name.trim();
+
+    if (!value) return "Name is required.";
+
+    if (value.length < 3) return "Name must be at least 3 characters.";
+
+    if (value.length > 50) return "Name cannot exceed 50 characters.";
+
+    // Allows:
+    // John
+    // John Doe
+    // Mary-Jane
+    // O'Connor
+    // Dr. John
+    if (!/^[A-Za-z][A-Za-z\s.'-]*$/.test(value))
+      return "Name can only contain letters, spaces, apostrophes, hyphens and periods.";
+
+    return "";
   };
 
   const validateEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const value = email.trim();
+
+    if (!value) return "Email is required.";
+
+    const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+    if (!emailRegex.test(value)) return "Please enter a valid email address.";
+
+    return "";
+  };
+
+  const validateSubject = (subject) => {
+    const value = subject.trim();
+
+    if (!value) return "Subject is required.";
+
+    if (value.length < 5) return "Subject must be at least 5 characters.";
+
+    if (value.length > 100) return "Subject cannot exceed 100 characters.";
+
+    return "";
+  };
+
+  const validateMessage = (message) => {
+    const value = message.trim();
+
+    if (!value) return "Message is required.";
+
+    if (value.length < 20) return "Message must be at least 20 characters.";
+
+    if (value.length > 1000) return "Message cannot exceed 1000 characters.";
+
+    return "";
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { name, email, message } = formData;
 
-    if (!name || !email || !message) {
-      toast.error("Please fill in all required fields.");
-      return;
-    }
-    if (!validateEmail(email)) {
-      toast.error("Please enter a valid email address.");
+    const newErrors = {
+      name: validateName(formData.name),
+      email: validateEmail(formData.email),
+      subject: validateSubject(formData.subject),
+      message: validateMessage(formData.message),
+    };
+
+    setErrors(newErrors);
+
+    if (Object.values(newErrors).some((error) => error !== "")) {
       return;
     }
 
     setLoading(true);
 
     try {
-      // Initialize EmailJS with public key
       emailjs.init(publicKey);
 
-      // Send email
       const result = await emailjs.send(serviceId, templateId, {
-        from_name: name,
-        from_email: email,
-        subject: formData.subject || "Portfolio Contact",
-        message: message,
+        from_name: formData.name.trim(),
+        from_email: formData.email.trim(),
+        subject: formData.subject.trim(),
+        message: formData.message.trim(),
         to_name: "Nandha Kumar",
-        reply_to: email,
+        reply_to: formData.email.trim(),
       });
 
-      console.log("Email sent successfully:", result.text);
+      console.log(result.text);
 
       toast.success("Message sent! I'll get back to you within 24 hours.");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+
+      setErrors({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
     } catch (err) {
-      console.error("EmailJS error:", err);
+      console.error(err);
+
       toast.error(
         "Failed to send. Please email directly: nandhakumarchinnasami@gmail.com",
-        "error",
       );
     } finally {
       setLoading(false);
@@ -87,62 +194,94 @@ const Contact = () => {
         <div className="contact-form" data-anim="up" data-delay="300">
           <div className="contact-card">
             <div className="contact-card-inner">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} noValidate>
                 <div className="form-row">
                   <div className="form-group">
-                    <label className="form-label">Name *</label>
+                    <label className="form-label">
+                      Name <span className="required">*</span>
+                    </label>
                     <input
                       type="text"
-                      className="form-input"
                       id="name"
                       placeholder="John Smith"
                       value={formData.name}
                       onChange={handleChange}
-                      required
+                      className={`form-input ${errors.name ? "input-error" : ""}`}
                     />
+                    {errors.name && (
+                      <p className="field-error">{errors.name}</p>
+                    )}
                   </div>
                   <div className="form-group">
-                    <label className="form-label">Email *</label>
+                    {" "}
+                    <label className="form-label">
+                      Email <span className="required">*</span>
+                    </label>
                     <input
                       type="email"
-                      className="form-input"
                       id="email"
                       placeholder="john@company.com"
                       value={formData.email}
                       onChange={handleChange}
-                      required
+                      className={`form-input ${errors.email ? "input-error" : ""}`}
                     />
+                    {errors.email && (
+                      <p className="field-error">{errors.email}</p>
+                    )}
                   </div>
                 </div>
                 <div className="form-group">
-                  <label className="form-label">Subject</label>
+                  <label className="form-label">
+                    Subject <span className="required">*</span>
+                  </label>
                   <input
                     type="text"
-                    className="form-input"
                     id="subject"
                     placeholder="React Developer Role — Your Company"
                     value={formData.subject}
                     onChange={handleChange}
+                    className={`form-input ${errors.subject ? "input-error" : ""}`}
                   />
+                  {errors.subject && (
+                    <p className="field-error">{errors.subject}</p>
+                  )}
                 </div>
                 <div className="form-group">
-                  <label className="form-label">Message *</label>
+                  <label className="form-label">
+                    Message <span className="required">*</span>
+                  </label>
                   <textarea
-                    className="form-input"
                     id="message"
                     placeholder="Hi Nandha, I'd love to discuss an opportunity..."
                     value={formData.message}
                     onChange={handleChange}
-                    required
+                    className={`form-input ${errors.message ? "input-error" : ""}`}
                   ></textarea>
+                  {errors.message && (
+                    <p className="field-error">{errors.message}</p>
+                  )}
                 </div>
                 <button
-                  type="submit"
-                  className="form-submit"
-                  disabled={loading}
-                >
-                  {loading ? "Sending..." : "Send Message →"}
-                </button>
+  type="submit"
+  className="form-submit"
+  disabled={loading}
+>
+  {loading ? (
+    <>
+      <div className="btn-spinner">
+        {Array.from({ length: 12 }).map((_, i) => (
+          <div key={i}></div>
+        ))}
+      </div>
+      <span>Sending...</span>
+    </>
+  ) : (
+    <>
+      <span>Send Message</span>
+      <span className="btn-arrow">→</span>
+    </>
+  )}
+</button>
               </form>
             </div>
           </div>

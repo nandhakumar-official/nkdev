@@ -1,94 +1,224 @@
-/* src/components/Home/Achievements.css
-   NEW classes only — existing .achievements, .ach-inner,
-   .ach-grid, .ach-card, .ach-num, .ach-label stay in App.css.
-   Import this in Achievements.jsx: import "./Achievements.css"
-────────────────────────────────────────────────────────────── */
+/* =========================================================
+   Achievements.css
+========================================================= */
 
-/* ── Icon ───────────────────────────────────────────────────
-   Emoji icon above the number — adds personality,
-   helps differentiate cards at a glance.                     */
-.ach-icon {
-  font-size: 1.75rem;
-  line-height: 1;
-  margin-bottom: 0.625rem;
-  display: block;
+/* ---------- Section ---------- */
+
+.achievements {
+  padding: 5rem 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.03),
+    rgba(124, 58, 237, 0.03)
+  );
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-/* ── Static number display ───────────────────────────────────
-   For stats that don't suit an animated counter (50%, etc.)
-   Matches .ach-num styling from App.css exactly.              */
-.ach-num-static span {
-  /* inherits font from .ach-num in App.css */
-  color: var(--accent);
-}
-
-/* ── Number prefix (if needed) ──────────────────────────────
-   For stats that need a prefix character before the number.
-   Currently unused but available.                             */
-.ach-prefix {
-  color: var(--accent);
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-/* ── Sublabel ────────────────────────────────────────────────
-   One-line explanation under the stat label.
-   Transforms a number into context — the visitor
-   knows exactly what "3 languages" means.                     */
-.ach-sublabel {
-  font-size: 0.72rem;
-  color: var(--muted2);
-  line-height: 1.5;
-  margin-top: 0.375rem;
-  max-width: 180px;
-  margin-left: auto;
-  margin-right: auto;
+.ach-inner {
+  max-width: 1100px;
+  margin: 0 auto;
   text-align: center;
 }
 
-/* ── Card hover accent ───────────────────────────────────────
-   Subtle top border appears on hover — ties into
-   the same hover pattern used in Skills and Projects.         */
+.achievements .section-sub {
+  max-width: 480px;
+  margin: 0 auto;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* ---------- Grid ---------- */
+
+.ach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+/* ---------- Card ---------- */
+
 .ach-card {
   position: relative;
   overflow: hidden;
+
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  padding: 2rem 1.2rem;
+
+  transition: all 0.3s ease;
+}
+
+.ach-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow:
+    0 18px 35px rgba(0,0,0,.25),
+    0 0 18px rgba(0,212,255,.08);
 }
 
 .ach-card::before {
   content: "";
   position: absolute;
+
   top: 0;
   left: 0;
   right: 0;
+
   height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
+
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent2)
+  );
+
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.3s ease;
+  transition: transform .3s;
 }
 
 .ach-card:hover::before {
   transform: scaleX(1);
 }
 
-/* ── Section subtitle ────────────────────────────────────────
-   Small meta-line that sets expectation — "not the same
-   stats you saw above" — prevents visitor confusion.          */
-.achievements .section-sub {
-  max-width: 440px;
-  font-size: 0.9rem;
-  color: var(--muted);
-  line-height: 1.65;
+/* ---------- Icon ---------- */
+
+.ach-icon {
+  font-size: 1.8rem;
+  margin-bottom: .8rem;
 }
 
-/* ── Responsive ─────────────────────────────────────────────  */
-@media (max-width: 680px) {
-  .ach-sublabel {
-    font-size: 0.68rem;
-    max-width: 140px;
+/* ---------- Number ---------- */
+
+.ach-num {
+  font-family: "Syne", sans-serif;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: .35rem;
+}
+
+.ach-num span {
+  color: var(--accent);
+}
+
+.ach-prefix {
+  color: var(--accent);
+}
+
+.ach-num-static span {
+  color: var(--accent);
+}
+
+/* ---------- Labels ---------- */
+
+.ach-label {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: .4rem;
+}
+
+.ach-sublabel {
+  color: var(--muted);
+  font-size: .76rem;
+  line-height: 1.6;
+
+  max-width: 180px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 992px) {
+
+  .ach-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .ach-icon {
-    font-size: 1.5rem;
+  .ach-card{
+    padding:1.8rem 1rem;
   }
+
+  .ach-num{
+    font-size:2.3rem;
+  }
+
+}
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width:768px){
+
+  .achievements{
+    padding:4rem 1.25rem;
+  }
+
+  .ach-grid{
+    grid-template-columns:1fr;
+    gap:1rem;
+  }
+
+  .ach-card{
+    padding:1.5rem;
+  }
+
+  .ach-icon{
+    font-size:1.6rem;
+  }
+
+  .ach-num{
+    font-size:2rem;
+  }
+
+  .ach-label{
+    font-size:.9rem;
+  }
+
+  .ach-sublabel{
+    max-width:100%;
+    font-size:.78rem;
+  }
+
+}
+
+/* =========================================================
+   Small Phones
+========================================================= */
+
+@media (max-width:480px){
+
+  .achievements{
+    padding:3.5rem 1rem;
+  }
+
+  .ach-card{
+    padding:1.3rem;
+  }
+
+  .ach-icon{
+    font-size:1.4rem;
+  }
+
+  .ach-num{
+    font-size:1.8rem;
+  }
+
+  .ach-label{
+    font-size:.85rem;
+  }
+
+  .ach-sublabel{
+    font-size:.72rem;
+    line-height:1.5;
+  }
+
 }

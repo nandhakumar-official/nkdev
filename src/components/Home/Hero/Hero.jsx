@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import nkLogo from "../../../assets/Nk Logo.png";
 import Typed from "typed.js";
+import "./Hero.css";
+import { getExperienceYears } from "../../../utils/experince.js";
 
 const Hero = () => {
   const typedRef = useRef(null);
@@ -13,6 +15,8 @@ const Hero = () => {
         "React.js Developer",
         "MERN Stack Developer",
         "Frontend Engineer",
+        "Backend Engineer",
+        "TypeScript Developer",
         "SaaS Product Developer",
       ],
       typeSpeed: 65,
@@ -33,8 +37,8 @@ const Hero = () => {
 
   const scrollToProjects = () =>
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-  const scrollToContact = () =>
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  // const scrollToContact = () =>
+  //   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
 
   const handleMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -61,6 +65,9 @@ const Hero = () => {
     { label: "Multilingual i18n", icon: "🌍" },
   ];
 
+  const experience = getExperienceYears();
+  const [year, decimal] = experience.split(".");
+
   return (
     <section id="hero" className="hero">
       <div className="grid-bg"></div>
@@ -71,7 +78,8 @@ const Hero = () => {
           <div className="hero-badge" data-anim="left" data-delay="100">
             <span className="badge-dot"></span>
             <span>
-              Open to React &amp; Full Stack roles · Bangalore / Remote
+              Open to React &amp; Full Stack roles · Tamil Nadu, Bangalore,
+              Kerala &amp; Remote
             </span>
           </div>
 
@@ -89,8 +97,8 @@ const Hero = () => {
 
           {/* FIX 3: Subtitle is now ONE punchy line — not a resume sentence */}
           <p className="hero-sub" data-anim="up" data-delay="300">
-            2.5 years shipping healthcare SaaS for US clients — from Figma to
-            production. Based in Tamil Nadu, India.
+            {getExperienceYears()} years shipping healthcare SaaS for US clients
+            — from Figma to production. Based in Tamil Nadu, India.
           </p>
 
           {/* FIX 4: CTAs now have clear visual hierarchy
@@ -136,7 +144,7 @@ const Hero = () => {
               <img
                 src={nkLogo}
                 alt="Nandha Kumar C — Full Stack Developer"
-                style={{ width: "178px" }}
+                className="hero-avatar"
               />
             </div>
           </div>
@@ -148,8 +156,10 @@ const Hero = () => {
           <div className="stat-cards" data-anim="right" data-delay="300">
             <div className="stat-card">
               <div className="stat-num">
-                2<span>.5+</span>
+                {year}
+                <span>.{decimal}+</span>
               </div>
+
               <div className="stat-label">Years Experience</div>
             </div>
             <div className="stat-card">
@@ -164,7 +174,7 @@ const Hero = () => {
                   that undermined the credibility of the real stats next to it.
                   "3 Languages" refers to EN/ES/HI i18n — real and specific. */}
               <div className="stat-num">
-                3<span> Lang</span>
+                6<span> Lang</span>
               </div>
               <div className="stat-label">i18n Supported</div>
             </div>

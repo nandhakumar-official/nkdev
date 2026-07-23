@@ -1,5 +1,6 @@
 // src/components/Layout/Navbar.jsx
 import { useState, useEffect } from "react";
+import "./Navbar.css";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);

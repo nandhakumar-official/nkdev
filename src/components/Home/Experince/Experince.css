@@ -86,16 +86,374 @@
 }
 
 /* ── Responsive ─────────────────────────────────────────────  */
-@media (max-width: 680px) {
-  .exp-resume-link {
-    font-size: 0.8rem;
+/* ==========================================================
+   RESPONSIVE DESIGN
+========================================================== */
+
+/* ---------- Laptop ---------- */
+@media (max-width: 1024px) {
+  .experience {
+    padding: 5rem 1.5rem;
+  }
+
+  .exp-inner {
+    max-width: 100%;
+  }
+
+  .timeline {
+    margin-top: 2.5rem;
+  }
+
+  .tl-card {
+    padding: 1.5rem;
+  }
+
+  .tl-role {
+    font-size: 1rem;
+  }
+
+  .tl-company {
+    font-size: 0.82rem;
+  }
+
+  .tl-points li {
+    font-size: 0.84rem;
   }
 
   .tl-tech-chip {
     font-size: 0.72rem;
   }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 768px) {
+  .experience {
+    padding: 4.5rem 1.25rem;
+  }
+
+  .timeline::before {
+    left: 15px;
+  }
+
+  .tl-item {
+    padding-left: 50px;
+    margin-bottom: 2rem;
+  }
+
+  .tl-dot {
+    width: 14px;
+    height: 14px;
+    left: 8px;
+    top: 8px;
+    border-width: 2px;
+  }
+
+  .tl-card {
+    padding: 1.25rem;
+  }
+
+  .tl-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .tl-date {
+    font-size: 0.75rem;
+  }
+
+  .tl-role {
+    font-size: 0.95rem;
+  }
+
+  .tl-company {
+    font-size: 0.8rem;
+  }
+
+  .tl-tag {
+    font-size: 0.7rem;
+  }
+
+  .tl-points li {
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  .tl-tech {
+    gap: 0.45rem;
+  }
+
+  .tl-tech-chip {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.55rem;
+  }
 
   .tl-promotion-note {
     font-size: 0.75rem;
+    width: 100%;
+    text-align: center;
   }
+
+  .exp-resume-link {
+    font-size: 0.8rem;
+    padding: 0.45rem 0.9rem;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  .experience {
+    padding: 4rem 1rem;
+  }
+
+  .timeline {
+    margin-top: 2rem;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .tl-item {
+    padding-left: 35px;
+    margin-bottom: 1.8rem;
+  }
+
+  .tl-dot {
+    width: 12px;
+    height: 12px;
+    left: 4px;
+    top: 10px;
+  }
+
+  .tl-card {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .tl-header {
+    gap: 0.5rem;
+  }
+
+  .tl-role {
+    font-size: 0.9rem;
+  }
+
+  .tl-company {
+    font-size: 0.75rem;
+  }
+
+  .tl-date {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.65rem;
+  }
+
+  .tl-tag {
+    font-size: 0.68rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .tl-points {
+    gap: 0.45rem;
+  }
+
+  .tl-points li {
+    font-size: 0.78rem;
+    padding-left: 1rem;
+  }
+
+  .tl-tech {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+  }
+
+  .tl-tech-chip {
+    font-size: 0.68rem;
+    padding: 0.28rem 0.5rem;
+  }
+
+  .tl-promotion-note {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.7rem;
+  }
+
+  .experience .section-sub {
+    font-size: 0.9rem;
+  }
+}
+
+/* ---------- Small Mobile ---------- */
+@media (max-width: 400px) {
+  .experience {
+    padding: 3.5rem 0.8rem;
+  }
+
+  .tl-card {
+    padding: 0.9rem;
+  }
+
+  .tl-role {
+    font-size: 0.85rem;
+  }
+
+  .tl-company {
+    font-size: 0.72rem;
+  }
+
+  .tl-date {
+    font-size: 0.68rem;
+  }
+
+  .tl-tag {
+    font-size: 0.65rem;
+  }
+
+  .tl-points li {
+    font-size: 0.74rem;
+  }
+
+  .tl-tech-chip {
+    font-size: 0.65rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .tl-promotion-note {
+    font-size: 0.68rem;
+  }
+
+  .exp-resume-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Experience Section */
+.experience {
+  padding: 6rem 2rem;
+  background: var(--bg2);
+}
+
+.exp-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 3rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent),
+    var(--accent2),
+    transparent
+  );
+}
+
+.tl-item {
+  position: relative;
+  padding-left: 70px;
+  margin-bottom: 2.5rem;
+}
+
+.tl-dot {
+  position: absolute;
+  left: 16px;
+  top: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg2);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
+}
+
+.tl-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+  transition: border-color 0.3s;
+}
+
+.tl-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 24px rgba(0, 212, 255, 0.05);
+}
+
+.tl-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tl-role {
+  font-family: "Syne", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.tl-company {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.tl-date {
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.tl-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--accent3);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  margin-bottom: 0.75rem;
+}
+
+.tl-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tl-points li {
+  font-size: 0.875rem;
+  color: var(--muted);
+  padding-left: 1.1rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.tl-points li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.75rem;
+  top: 1px;
 }

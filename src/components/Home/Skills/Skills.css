@@ -1,109 +1,316 @@
-/* src/components/Home/Skills.css
-   NEW classes only — existing .skill-category, .skill-tags,
-   .skill-tag, .skill-cat-header etc. stay in App.css untouched.
-   Import this file in Skills.jsx: import "./Skills.css"
-────────────────────────────────────────────────────────────── */
+/* ==========================================================
+   SKILLS SECTION
+========================================================== */
 
-/* ── Featured card (Frontend) ──────────────────────────────
-   Gives Frontend more visual weight than other cards.
-   Slightly brighter border, stronger accent on hover.        */
+#skills {
+  padding: 6rem 2rem;
+}
+
+.skills-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.skill-category {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.6rem;
+  transition: all .35s ease;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.skill-category:hover {
+  border-color: var(--accent);
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.25),
+    0 0 25px rgba(0,212,255,.08);
+}
+
+/* ==========================================================
+   FEATURED CARD
+========================================================== */
 
 .skill-featured {
-  border-color: rgba(0, 212, 255, 0.2);
-  background: linear-gradient(
-    135deg,
-    rgba(0, 212, 255, 0.03) 0%,
-    var(--card) 60%
+  border-color: rgba(0,212,255,.25);
+  background:
+  linear-gradient(
+      135deg,
+      rgba(0,212,255,.04),
+      var(--card) 70%
   );
 }
 
 .skill-featured:hover {
-  border-color: var(--accent) !important;
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.25),
-    0 0 30px rgba(0, 212, 255, 0.12) !important;
+      0 20px 40px rgba(0,0,0,.25),
+      0 0 30px rgba(0,212,255,.18);
 }
 
-/* ── Primary badge (Frontend card) ─────────────────────────
-   Small badge in the header signalling this is the
-   primary skill area. Cyan to match the card accent. */
+/* ==========================================================
+   HEADER
+========================================================== */
 
-.skill-primary-badge {
-  margin-left: auto;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 100px;
-  background: rgba(0, 212, 255, 0.1);
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  color: var(--accent);
-  white-space: nowrap;
+.skill-cat-header {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 1.25rem;
 }
 
-/* ── Domain expertise badge (Concepts card) ─────────────────
-   Signals these are rare/domain-specific, not just buzzwords.
-   Amber/orange to visually differentiate from primary badge.  */
+.skill-cat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.1rem;
+}
+
+.skill-cat-name {
+  font-family: "Syne", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+/* ==========================================================
+   BADGES
+========================================================== */
+
+.skill-primary-badge,
 .skill-rare-badge {
   margin-left: auto;
-  font-size: 0.68rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+
+  font-size: .68rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 100px;
-  background: rgba(245, 158, 11, 0.1);
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  color: #f59e0b;
+
   white-space: nowrap;
+  letter-spacing: .05em;
+  text-transform: uppercase;
 }
 
-/* ── Highlighted skill tag ───────────────────────────────────
-   Used for the first 4 Concepts skills (HIPAA, Stripe, OCR,
-   Digital Signatures) — these are rare differentiators and
-   should visually pop against the common skills below them.   */
+.skill-primary-badge {
+  color: var(--accent);
+  background: rgba(0,212,255,.1);
+  border: 1px solid rgba(0,212,255,.25);
+}
+
+.skill-rare-badge {
+  color: #f59e0b;
+  background: rgba(245,158,11,.1);
+  border: 1px solid rgba(245,158,11,.25);
+}
+
+/* ==========================================================
+   TAGS
+========================================================== */
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+}
+
+.skill-tag {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+
+  padding: .45rem .8rem;
+
+  border-radius: 8px;
+
+  font-size: .82rem;
+
+  color: var(--text);
+
+  transition: .25s;
+}
+
+.skill-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(0,212,255,.06);
+}
+
 .skill-tag-highlight {
-  background: rgba(0, 212, 255, 0.08) !important;
-  border-color: rgba(0, 212, 255, 0.25) !important;
-  color: var(--accent) !important;
-  font-weight: 500;
+  background: rgba(0,212,255,.08);
+  color: var(--accent);
+  border-color: rgba(0,212,255,.25);
+  font-weight: 600;
 }
 
-.skill-tag-highlight:hover {
-  background: rgba(0, 212, 255, 0.14) !important;
-  border-color: var(--accent) !important;
-}
+/* ==========================================================
+   PROOF
+========================================================== */
 
-/* ── Proof line ─────────────────────────────────────────────
-   The one-liner under each skill card that transforms a tag
-   cloud into evidence. Sits below the tags, subtle style.     */
 .skill-proof {
   margin-top: 1rem;
-  padding-top: 0.875rem;
+  padding-top: 1rem;
+
   border-top: 1px solid var(--border);
-  font-size: 0.78rem;
+
   color: var(--muted);
+
+  font-size: .82rem;
+
   line-height: 1.6;
+
   font-style: italic;
 }
 
-/* Small cyan accent on the proof line to tie it to the card  */
 .skill-proof::before {
   content: "→ ";
   color: var(--accent);
-  font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-/* ── Responsive ─────────────────────────────────────────────  */
-@media (max-width: 680px) {
-  .skill-primary-badge,
-  .skill-rare-badge {
-    display: none; /* too cramped on mobile */
-  }
+/* ==========================================================
+   LARGE TABLETS
+========================================================== */
 
-  .skill-proof {
-    font-size: 0.75rem;
-  }
+@media (max-width:1024px){
+
+.skills-grid{
+grid-template-columns:1fr;
+}
+
+.full-width{
+grid-column:auto;
+}
+
+}
+
+/* ==========================================================
+   TABLETS
+========================================================== */
+
+@media (max-width:768px){
+
+#skills{
+padding:5rem 1.5rem;
+}
+
+.skills-grid{
+gap:1.2rem;
+}
+
+.skill-category{
+padding:1.4rem;
+}
+
+.skill-cat-name{
+font-size:.95rem;
+}
+
+.skill-tag{
+font-size:.78rem;
+padding:.42rem .7rem;
+}
+
+.skill-proof{
+font-size:.78rem;
+}
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width:600px){
+
+#skills{
+padding:4rem 1rem;
+}
+
+.skills-grid{
+margin-top:2rem;
+gap:1rem;
+}
+
+.skill-category{
+padding:1.2rem;
+border-radius:14px;
+}
+
+.skill-cat-header{
+align-items:flex-start;
+flex-wrap:wrap;
+gap:.6rem;
+}
+
+.skill-cat-icon{
+width:38px;
+height:38px;
+font-size:1rem;
+}
+
+.skill-cat-name{
+font-size:.92rem;
+}
+
+.skill-primary-badge,
+.skill-rare-badge{
+display:none;
+}
+
+.skill-tags{
+gap:.45rem;
+}
+
+.skill-tag{
+font-size:.75rem;
+padding:.38rem .65rem;
+}
+
+.skill-proof{
+font-size:.74rem;
+margin-top:.9rem;
+padding-top:.8rem;
+}
+
+}
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width:400px){
+
+.skill-category{
+padding:1rem;
+}
+
+.skill-tag{
+width:100%;
+text-align:center;
+}
+
 }

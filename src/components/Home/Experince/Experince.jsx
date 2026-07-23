@@ -10,6 +10,7 @@
 // 8. observer.unobserve() called after animating — no redundant observations
 
 import { useEffect } from "react";
+import "./Experince.css"
 
 const Experience = () => {
   useEffect(() => {

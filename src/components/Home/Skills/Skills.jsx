@@ -67,6 +67,13 @@ const Skills = () => {
     "React Query",
     "Context API",
     "React Router",
+    "Redux",
+    "Responsive Design",
+    "Lazy Loading",
+    "Code Splitting",
+    "Progressive Web Apps",
+    "Accessibility",
+    "Cross-Browser Testing",
   ];
 
   const backendSkills = [
@@ -83,6 +90,8 @@ const Skills = () => {
   const toolsSkills = [
     "Git",
     "GitHub",
+    "CI/CD",
+    "GitHub Actions",
     "Postman",
     "Figma",
     "Vite",
@@ -239,9 +248,8 @@ const Skills = () => {
             </div>
             {/* FIX: Proof line added — was completely missing before */}
             <p className="skill-proof">
-              Git-based Agile workflow daily. Figma handoff to production
-              without a separate designer in the loop.
-            </p>
+  Git-based Agile workflow with CI/CD pipelines, code reviews, and Figma-to-production delivery.
+</p>
           </div>
 
           {/* ── CONCEPTS & INTEGRATIONS — Full width, rare skills first ── */}

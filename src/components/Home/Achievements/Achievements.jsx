@@ -1,14 +1,4 @@
 // src/components/Home/Achievements.jsx
-// AUDIT FIXES APPLIED:
-// 1. ALL 4 numbers replaced — none duplicate Hero stat cards anymore
-//    Hero has: 2.5+ years, 4+ apps, 3 lang, 1k+ users
-//    This section now shows: 3 languages, 50% reduction, 7 modules, 4 countries
-// 2. Two card types: animated counters + static highlight cards
-//    — some stats don't suit a counter (50%, "countries") so they're static
-// 3. Section label + title updated to match new content
-// 4. fadeObserver now uses anim-in (matches scroll system) not "visible"
-// 5. observer.disconnect() already correct — kept as-is
-
 import { useEffect, useRef } from "react";
 import "./Achievements.css";
 
@@ -80,24 +70,15 @@ const Achievements = () => {
     };
   }, []);
 
-  // FIX: ALL new numbers — none appear in Hero, About, or anywhere else
-  //
-  // OLD (duplicated Hero):          NEW (unique, specific, meaningful):
-  // 2.5+ Years Experience       →   3 Languages (EN/ES/HI — i18n work)
-  // 5+ Production Projects      →   50% (HR onboarding reduction — freelance)
-  // 1000+ Healthcare Users      →   7 Modules (Employee Form scope)
-  // 3+ Major SaaS Applications  →   4 Countries (US healthcare client reach)
-  //
-  // Each stat now tells a story no other developer has.
-
   const achievements = [
     {
       type: "counter", // animated number
-      target: "3",
+      target: "6",
       suffix: "",
       prefix: "",
       label: "Languages Supported",
-      sublabel: "English, Spanish & Hindi — multilingual i18n in production",
+      sublabel:
+        "English, Spanish , Chinese, Arabic, French, German — multilingual i18n in production",
       icon: "🌍",
       delay: 100,
     },

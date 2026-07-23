@@ -1,8 +1,8 @@
 // src/App.js
 import { useEffect, useState } from "react";
 import "./App.css";
-import Navbar from "./components/Layout/Navbar";
-import Footer from "./components/Layout/Footer";
+import Navbar from "./components/Layout/Navbar/Navbar";
+import Footer from "./components/Layout/Footer/Footer";
 import CursorGlow from "./components/Layout/CursorGlow";
 import Hero from "./components/Home/Hero/Hero";
 import About from "./components/Home/About/About";
