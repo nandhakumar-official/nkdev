@@ -22,11 +22,12 @@ const Contact = () => {
   const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
   const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
   const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const autoReplyTemplateId = import.meta.env.VITE_EMAILJS_REPLY_TEMPLATE_ID;
 
   console.log({
-    publicKey,
     serviceId,
     templateId,
+    autoReplyTemplateId,
   });
 
   const handleChange = (e) => {
@@ -144,7 +145,7 @@ const Contact = () => {
     try {
       emailjs.init(publicKey);
 
-      const result = await emailjs.send(serviceId, templateId, {
+      const ownerMail = await emailjs.send(serviceId, templateId, {
         from_name: formData.name.trim(),
         from_email: formData.email.trim(),
         subject: formData.subject.trim(),
@@ -153,7 +154,14 @@ const Contact = () => {
         reply_to: formData.email.trim(),
       });
 
-      console.log(result.text);
+      console.log("Owner mail:", ownerMail);
+
+      const autoMail = await emailjs.send(serviceId, autoReplyTemplateId, {
+        from_name: formData.name.trim(),
+        from_email: formData.email.trim(),
+      });
+
+      console.log("Auto reply:", autoMail);
 
       toast.success("Message sent! I'll get back to you within 24 hours.");
 
@@ -171,7 +179,7 @@ const Contact = () => {
         message: "",
       });
     } catch (err) {
-      console.error(err);
+      console.error("EmailJS Error:", err);
 
       toast.error(
         "Failed to send. Please email directly: nandhakumarchinnasami@gmail.com",
@@ -262,26 +270,26 @@ const Contact = () => {
                   )}
                 </div>
                 <button
-  type="submit"
-  className="form-submit"
-  disabled={loading}
->
-  {loading ? (
-    <>
-      <div className="btn-spinner">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <div key={i}></div>
-        ))}
-      </div>
-      <span>Sending...</span>
-    </>
-  ) : (
-    <>
-      <span>Send Message</span>
-      <span className="btn-arrow">→</span>
-    </>
-  )}
-</button>
+                  type="submit"
+                  className="form-submit"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <>
+                      <div className="btn-spinner">
+                        {Array.from({ length: 12 }).map((_, i) => (
+                          <div key={i}></div>
+                        ))}
+                      </div>
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <span className="btn-arrow">→</span>
+                    </>
+                  )}
+                </button>
               </form>
             </div>
           </div>
