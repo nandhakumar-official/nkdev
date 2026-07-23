@@ -1,0 +1,135 @@
+/* src/components/Home/Projects.css
+   NEW classes only — existing .proj-card, .proj-header,
+   .proj-title, .proj-desc, .proj-stack, .proj-tech,
+   .proj-footer, .proj-btn etc. stay in App.css untouched.
+   Import this file in Projects.jsx: import "./Projects.css"
+────────────────────────────────────────────────────────────── */
+
+/* ── Layout: Featured row (top 2 projects) ──────────────────
+   Two large equal-width cards side by side.
+   On mobile stacks to single column.                         */
+   
+.proj-featured-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Layout: Standard row (projects 03 and 04) ──────────────
+   Same grid as before — auto-fit for responsive behaviour.   */
+.proj-standard-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── Accent bar ─────────────────────────────────────────────
+   Thin colored strip at the top of every card.
+   Each project gets its own color — visually distinct.
+   Uses --proj-accent CSS variable set inline in JSX.         */
+.proj-accent-bar {
+  height: 3px;
+  width: 100%;
+  border-radius: 2px 2px 0 0;
+  opacity: 0.85;
+}
+
+/* ── Featured card overrides ────────────────────────────────
+   Featured cards (Patient Intake, Admin Dashboard) get
+   a slightly stronger border and larger inner padding.        */
+.proj-card-featured {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.proj-card-featured:hover {
+  border-color: var(--proj-accent, var(--accent)) !important;
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.4),
+    0 0 24px
+      color-mix(in srgb, var(--proj-accent, var(--accent)) 15%, transparent) !important;
+}
+
+/* ── Metric headline ─────────────────────────────────────────
+   The first line a visitor reads on each card.
+   Larger than description, smaller than title.
+   This is the hook — metric or key outcome.                   */
+.proj-metric {
+  font-family: "Syne", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--proj-accent, var(--accent));
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
+
+/* ── Problem sentence ────────────────────────────────────────
+   One line of context — what problem the project solved.
+   Gives visitor context before reading description.           */
+.proj-problem {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+.proj-problem-label {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 4px;
+}
+
+/* ── Outcome chips ───────────────────────────────────────────
+   Replace the old .proj-feats bullet list.
+   Compact, scannable, checkmark-prefixed.
+   Much faster to read than a vertical list of bullets.        */
+.proj-outcomes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.proj-outcome-chip {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 400;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.proj-outcome-chip:hover {
+  border-color: var(--proj-accent, var(--accent));
+  color: var(--text);
+}
+
+/* ── Responsive ─────────────────────────────────────────────  */
+@media (max-width: 900px) {
+  .proj-featured-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .proj-metric {
+    font-size: 0.82rem;
+  }
+
+  .proj-outcome-chip {
+    font-size: 0.72rem;
+  }
+
+  .proj-standard-row {
+    grid-template-columns: 1fr;
+  }
+}

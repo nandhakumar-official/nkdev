@@ -1,0 +1,94 @@
+/* src/components/Home/Achievements.css
+   NEW classes only — existing .achievements, .ach-inner,
+   .ach-grid, .ach-card, .ach-num, .ach-label stay in App.css.
+   Import this in Achievements.jsx: import "./Achievements.css"
+────────────────────────────────────────────────────────────── */
+
+/* ── Icon ───────────────────────────────────────────────────
+   Emoji icon above the number — adds personality,
+   helps differentiate cards at a glance.                     */
+.ach-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  margin-bottom: 0.625rem;
+  display: block;
+}
+
+/* ── Static number display ───────────────────────────────────
+   For stats that don't suit an animated counter (50%, etc.)
+   Matches .ach-num styling from App.css exactly.              */
+.ach-num-static span {
+  /* inherits font from .ach-num in App.css */
+  color: var(--accent);
+}
+
+/* ── Number prefix (if needed) ──────────────────────────────
+   For stats that need a prefix character before the number.
+   Currently unused but available.                             */
+.ach-prefix {
+  color: var(--accent);
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* ── Sublabel ────────────────────────────────────────────────
+   One-line explanation under the stat label.
+   Transforms a number into context — the visitor
+   knows exactly what "3 languages" means.                     */
+.ach-sublabel {
+  font-size: 0.72rem;
+  color: var(--muted2);
+  line-height: 1.5;
+  margin-top: 0.375rem;
+  max-width: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* ── Card hover accent ───────────────────────────────────────
+   Subtle top border appears on hover — ties into
+   the same hover pattern used in Skills and Projects.         */
+.ach-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.ach-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.ach-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ── Section subtitle ────────────────────────────────────────
+   Small meta-line that sets expectation — "not the same
+   stats you saw above" — prevents visitor confusion.          */
+.achievements .section-sub {
+  max-width: 440px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ── Responsive ─────────────────────────────────────────────  */
+@media (max-width: 680px) {
+  .ach-sublabel {
+    font-size: 0.68rem;
+    max-width: 140px;
+  }
+
+  .ach-icon {
+    font-size: 1.5rem;
+  }
+}

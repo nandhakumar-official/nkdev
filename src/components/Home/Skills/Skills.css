@@ -1,0 +1,109 @@
+/* src/components/Home/Skills.css
+   NEW classes only — existing .skill-category, .skill-tags,
+   .skill-tag, .skill-cat-header etc. stay in App.css untouched.
+   Import this file in Skills.jsx: import "./Skills.css"
+────────────────────────────────────────────────────────────── */
+
+/* ── Featured card (Frontend) ──────────────────────────────
+   Gives Frontend more visual weight than other cards.
+   Slightly brighter border, stronger accent on hover.        */
+
+.skill-featured {
+  border-color: rgba(0, 212, 255, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.03) 0%,
+    var(--card) 60%
+  );
+}
+
+.skill-featured:hover {
+  border-color: var(--accent) !important;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.25),
+    0 0 30px rgba(0, 212, 255, 0.12) !important;
+}
+
+/* ── Primary badge (Frontend card) ─────────────────────────
+   Small badge in the header signalling this is the
+   primary skill area. Cyan to match the card accent. */
+
+.skill-primary-badge {
+  margin-left: auto;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 100px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* ── Domain expertise badge (Concepts card) ─────────────────
+   Signals these are rare/domain-specific, not just buzzwords.
+   Amber/orange to visually differentiate from primary badge.  */
+.skill-rare-badge {
+  margin-left: auto;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 100px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #f59e0b;
+  white-space: nowrap;
+}
+
+/* ── Highlighted skill tag ───────────────────────────────────
+   Used for the first 4 Concepts skills (HIPAA, Stripe, OCR,
+   Digital Signatures) — these are rare differentiators and
+   should visually pop against the common skills below them.   */
+.skill-tag-highlight {
+  background: rgba(0, 212, 255, 0.08) !important;
+  border-color: rgba(0, 212, 255, 0.25) !important;
+  color: var(--accent) !important;
+  font-weight: 500;
+}
+
+.skill-tag-highlight:hover {
+  background: rgba(0, 212, 255, 0.14) !important;
+  border-color: var(--accent) !important;
+}
+
+/* ── Proof line ─────────────────────────────────────────────
+   The one-liner under each skill card that transforms a tag
+   cloud into evidence. Sits below the tags, subtle style.     */
+.skill-proof {
+  margin-top: 1rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Small cyan accent on the proof line to tie it to the card  */
+.skill-proof::before {
+  content: "→ ";
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ── Responsive ─────────────────────────────────────────────  */
+@media (max-width: 680px) {
+  .skill-primary-badge,
+  .skill-rare-badge {
+    display: none; /* too cramped on mobile */
+  }
+
+  .skill-proof {
+    font-size: 0.75rem;
+  }
+}

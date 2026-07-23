@@ -1,0 +1,128 @@
+/* src/components/Home/WhyHire.css
+   NEW classes only — existing .why, .why-inner, .why-grid,
+   .why-card, .why-icon, .why-title, .why-desc stay in App.css.
+   Import this in WhyHire.jsx: import "./WhyHire.css"
+────────────────────────────────────────────────────────────── */
+
+/* ── 3-column grid override ─────────────────────────────────
+   Replaces the auto-fit 2x3 grid from App.css.
+   3 equal cards in one row — each gets full visual weight.   */
+.why-grid-3 {
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 1.5rem;
+}
+
+/* ── Proof card overrides ───────────────────────────────────
+   Adds the accent bar + proof tag pattern without
+   touching the base .why-card styles in App.css.             */
+.why-card-proof {
+  padding: 0 !important; /* reset — inner div handles padding */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Override the existing ::before accent line from App.css
+   with one that uses --why-accent variable instead of
+   the generic gradient, so each card has its own color.      */
+.why-card-proof::before {
+  content: none !important; /* disable App.css version */
+}
+
+/* ── Accent bar ─────────────────────────────────────────────
+   Matches the pattern from Projects.css — consistent
+   visual language across the portfolio.                       */
+.why-accent-bar {
+  height: 3px;
+  width: 100%;
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+/* ── Inner content area ─────────────────────────────────────
+   Handles the padding that .why-card-proof removed.           */
+.why-card-inner {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  height: 100%;
+}
+
+/* ── Hover — uses card-specific accent color ────────────────  */
+.why-card-proof:hover {
+  border-color: var(--why-accent, var(--accent)) !important;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.3),
+    0 0 20px
+      color-mix(in srgb, var(--why-accent, var(--accent)) 10%, transparent);
+  transform: translateY(-4px) !important;
+}
+
+/* ── Proof tag ───────────────────────────────────────────────
+   Links each claim to a specific project the visitor
+   already scrolled past. Acts as a "see the proof" CTA.
+   Sits at the bottom of each card.                            */
+.why-proof-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1.25rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--why-accent, var(--accent));
+  background: color-mix(
+    in srgb,
+    var(--why-accent, var(--accent)) 8%,
+    transparent
+  );
+  border: 1px solid
+    color-mix(in srgb, var(--why-accent, var(--accent)) 25%, transparent);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  align-self: flex-start; /* don't stretch full width */
+}
+
+.why-proof-tag:hover {
+  background: color-mix(
+    in srgb,
+    var(--why-accent, var(--accent)) 15%,
+    transparent
+  );
+  transform: translateX(2px);
+}
+
+.why-proof-icon {
+  font-size: 0.8rem;
+  font-style: normal;
+}
+
+/* ── Title spacing ───────────────────────────────────────────
+   Tighten spacing slightly since we have 3 longer cards now   */
+.why-card-proof .why-title {
+  margin-bottom: 0.625rem;
+  margin-top: 0.875rem;
+}
+
+.why-card-proof .why-desc {
+  line-height: 1.7;
+  font-size: 0.86rem;
+}
+
+/* ── Responsive ─────────────────────────────────────────────  */
+@media (max-width: 900px) {
+  .why-grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .why-card-inner {
+    padding: 1.25rem;
+  }
+
+  .why-proof-tag {
+    font-size: 0.72rem;
+  }
+}

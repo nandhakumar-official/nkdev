@@ -1,0 +1,140 @@
+/* ─────────────────────────────────────────────────────────────
+   ABOUT SECTION — NEW CSS
+   Add these to your existing App.css.
+   These are NEW classes only. Existing classes
+   (.about, .about-inner, .about-story, .highlight-card etc.)
+   are unchanged — they still work from App.css.
+────────────────────────────────────────────────────────────── */
+
+/* ── Proof Point Grid ──────────────────────────────────────── */
+/* Replaces the .about-stats grid (which duplicated hero stats) */
+
+.about-proof-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-proof-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.about-proof-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.about-proof-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+  line-height: 1;
+}
+
+.about-proof-title {
+  font-family: "Syne", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+
+.about-proof-desc {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* ── Currently Learning ────────────────────────────────────── */
+/* Fills right column space left by removed stat cards.
+   Unique content — doesn't duplicate anything else on the page. */
+
+.about-learning {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+.about-learning-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.875rem;
+}
+
+.about-learning-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.about-learning-tag {
+  font-size: 0.82rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Active = currently studying */
+.about-learning-tag.active {
+  background: rgba(0, 212, 255, 0.07);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  color: var(--accent);
+}
+
+/* Next = planned but not started */
+.about-learning-tag.next {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+/* ── FIX: Remove badge conflict ─────────────────────────────
+   App.css has .hero-badge::before which auto-creates the pulse dot.
+   Hero.jsx now uses that instead of manually adding .badge-dot.
+   The .badge-dot class in hero-additions.css is NOT needed —
+   App.css already handles the dot via ::before pseudo-element.
+
+   ACTION: In Hero.jsx, REMOVE the <span className="badge-dot">
+   element — the ::before in App.css already does this.
+   The hero-additions.css badge-dot block can be deleted.
+────────────────────────────────────────────────────────────── */
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .about-proof-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .about-proof-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.625rem;
+  }
+
+  .about-proof-title {
+    font-size: 0.78rem;
+  }
+
+  .about-proof-desc {
+    font-size: 0.72rem;
+  }
+}

@@ -1,0 +1,101 @@
+/* src/components/Home/Experience.css
+   NEW classes only — existing .tl-item, .tl-card, .tl-header,
+   .tl-role, .tl-company, .tl-date, .tl-tag, .tl-points,
+   .timeline etc. stay in App.css untouched.
+   Import this file in Experience.jsx: import "./Experience.css"
+────────────────────────────────────────────────────────────── */
+
+/* ── Resume download link ───────────────────────────────────
+   Sits directly under the section subtitle.
+   Gives visitor immediate access to full detail
+   without scrolling to footer.                               */
+.exp-resume-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  background: rgba(0, 212, 255, 0.06);
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  margin-bottom: 2.5rem;
+  transition: all 0.2s ease;
+  margin-top: 0.75rem;
+}
+
+.exp-resume-link:hover {
+  background: rgba(0, 212, 255, 0.12);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* ── Tech stack chips per role ──────────────────────────────
+   Replaces the old approach of listing tech inline in bullets.
+   Now scannable at a glance, visually separated from bullets. */
+.tl-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--border);
+}
+
+.tl-tech-chip {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-family: monospace;
+  transition: all 0.15s ease;
+}
+
+.tl-tech-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Promotion note ─────────────────────────────────────────
+   Separate visual element so the promotion isn't buried
+   inside a bullet. Green accent — positive signal.           */
+.tl-promotion-note {
+  margin-top: 0.875rem;
+  padding: 0.5rem 0.875rem;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #34d399;
+  display: inline-block;
+}
+
+/* ── Section subtitle ───────────────────────────────────────
+   Sets the right expectation — portfolio shows outcomes,
+   resume has full detail. Reduces visitor confusion.         */
+.experience .section-sub {
+  max-width: 560px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* ── Responsive ─────────────────────────────────────────────  */
+@media (max-width: 680px) {
+  .exp-resume-link {
+    font-size: 0.8rem;
+  }
+
+  .tl-tech-chip {
+    font-size: 0.72rem;
+  }
+
+  .tl-promotion-note {
+    font-size: 0.75rem;
+  }
+}
