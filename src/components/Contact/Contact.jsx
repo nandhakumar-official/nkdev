@@ -322,7 +322,7 @@ const Contact = () => {
             LinkedIn
           </a>
           <a
-            href="https://github.com/N4NDH4KUM4R"
+            href="https://github.com/nandhakumar-official"
             target="_blank"
             rel="noopener noreferrer"
             className="contact-link"

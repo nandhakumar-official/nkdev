@@ -123,7 +123,7 @@ const Projects = () => {
       ],
       stack: ["MongoDB", "Express.js", "React.js", "Node.js", "Figma"],
       isPrivate: false,
-      githubLink: "https://github.com/N4NDH4KUM4R",
+      githubLink: "https://github.com/nandhakumar-official",
     },
     {
       id: "04",
