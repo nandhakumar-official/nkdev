@@ -1,14 +1,3 @@
-// src/components/Home/Projects.jsx
-// AUDIT FIXES APPLIED:
-// 1. Patient Intake + Admin Dashboard → FEATURED cards (larger, metric headline)
-// 2. Employee Form → metric "50% reduction" as headline, not buried in bullet
-// 3. Each card has a unique accent color at the top — visually distinct
-// 4. Feature bullets replaced with outcome chips — scannable in 3 seconds
-// 5. "Problem → Solution" sentence added under description
-// 6. Cards are no longer equal — featured projects feel more impressive
-// 7. observer.disconnect() on cleanup — cleaner than loop unobserve
-// 8. anim-in class used (matches scroll system) instead of "visible"
-
 import { useEffect } from "react";
 import "./Projects.css";
 
@@ -40,21 +29,28 @@ const Projects = () => {
       type: "Healthcare",
       highlight: "health",
       highlightText: "HIPAA Compliant",
-      // FIX: Metric headline — this is the hook, not the title
       metricHeadline: "1,000+ US healthcare users onboarded",
       title: "Patient Form & Agreement System",
-      // FIX: Problem → Solution sentence
-      problem: "Manual patient intake was error-prone and slow at midnight.",
+      problem:
+        "Challenge: Healthcare providers needed a secure digital workflow to replace manual patient onboarding.",
       description:
-        "HIPAA-compliant patient intake platform with OCR scanning, multilingual forms, digital signatures, and appointment booking.",
+        "Built a HIPAA-compliant patient onboarding platform featuring OCR, multilingual forms, digital signatures, appointment scheduling, and secure document workflows.",
       // FIX: Outcome chips replace feature bullet list
+      contribution: [
+        "Workflow Design",
+        "Figma Collaboration",
+        "Frontend Development",
+        "Backend APIs",
+        "Manual Testing",
+        "Production Deployment",
+      ],
       outcomes: [
-        "OCR + manual fallback",
-        "EN / ES / ZH / AR / FR / DE i18n",
+        "HIPAA workflows",
+        "OCR processing",
         "Digital signatures",
-        "8+ step form state",
-        "Pre & post-payment",
-        "PDF agreements",
+        "Multilingual i18n",
+        "Stripe payments",
+        "PDF generation",
       ],
       stack: [
         "React.js",
@@ -65,7 +61,7 @@ const Projects = () => {
         "REST APIs",
       ],
       isPrivate: true,
-      privateText: "Private — Siddha AI",
+      privateText: "Private Client Project",
     },
     {
       id: "02",
@@ -74,7 +70,7 @@ const Projects = () => {
       type: "SaaS",
       highlight: "saas",
       highlightText: "Multi-tenant Dashboard",
-      metricHeadline: "Two roles. One codebase. Real-time analytics.",
+      metricHeadline: "Multi-tenant SaaS with role-based access",
       title: "Admin & Super Admin Dashboard",
       problem:
         "Platform needed separate views for platform owners vs. each client.",
@@ -97,7 +93,7 @@ const Projects = () => {
         "i18n",
       ],
       isPrivate: true,
-      privateText: "Private — Siddha AI",
+      privateText: "Private Client Project",
     },
     {
       id: "03",
@@ -132,7 +128,7 @@ const Projects = () => {
       type: "Payments",
       highlight: "payment",
       highlightText: "Stripe Integration",
-      metricHeadline: "Onboarding + payment in one seamless flow",
+      metricHeadline: "End-to-end onboarding with secure payments",
       title: "Client Intake & Payment Flow",
       problem:
         "Clients needed to sign agreements and pay before accessing the platform.",
@@ -146,7 +142,7 @@ const Projects = () => {
       ],
       stack: ["React.js", "TypeScript", "Tailwind CSS", "Stripe", "i18n"],
       isPrivate: true,
-      privateText: "Private — Siddha AI",
+      privateText: "Private Client Project",
     },
   ];
 
@@ -166,7 +162,7 @@ const Projects = () => {
           data-delay="100"
           style={{ textAlign: "center" }}
         >
-          Things I've built
+          Products I've helped bring to life
         </h2>
         <p
           className="section-sub"
@@ -174,8 +170,10 @@ const Projects = () => {
           data-delay="200"
           style={{ textAlign: "center", margin: "0 auto 3rem auto" }}
         >
-          From solo freelance builds to enterprise healthcare SaaS — each one
-          shipped to production, not left as a side project.
+          From healthcare SaaS platforms serving US clients to custom business
+          applications, every project reflects complete ownership—from product
+          discussions and Figma designs to development, testing, and production
+          deployment.
         </p>
 
         {/* FIX: Featured row — top 2 projects get full-width treatment */}
@@ -315,7 +313,7 @@ const Projects = () => {
                       rel="noopener noreferrer"
                       className="proj-btn"
                     >
-                      ↗ GitHub
+                      View Source →
                     </a>
                   )}
                 </div>

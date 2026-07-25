@@ -26,6 +26,14 @@
   text-align: center;
 }
 
+.loader-sub {
+  margin-top: 8px;
+  color: #10b981;
+  font-family: "DM Sans", monospace;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
 .loader-ring {
   display: inline-block;
   position: relative;

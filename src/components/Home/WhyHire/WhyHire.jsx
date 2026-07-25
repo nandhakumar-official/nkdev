@@ -25,10 +25,12 @@ const WhyHire = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
-    document.querySelectorAll(".why-card").forEach((el) => observer.observe(el));
+    document
+      .querySelectorAll(".why-card")
+      .forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
@@ -46,12 +48,11 @@ const WhyHire = () => {
 
   const reasons = [
     {
-      icon: "🏥",
-      title: "I've shipped in regulated environments",
+      icon: "🧩",
+      title: "I solve product problems, not just coding tasks",
       description:
-        "HIPAA compliance, patient data handling, OCR fallback workflows, and digital signature generation. Not side projects — production systems used by 1,000+ US healthcare users at Siddha AI.",
-      // Proof tag links back to Projects section mentally
-      proofTag: "Patient Intake & Agreement System",
+        "I enjoy turning complicated workflows into simple user experiences. From multi-step patient onboarding to admin dashboards, I focus on reducing friction while keeping the system scalable.",
+      proofTag: "Patient Intake Platform",
       proofLink: "#projects",
       accentColor: "#10b981", // green — healthcare
       anim: "left",
@@ -59,9 +60,9 @@ const WhyHire = () => {
     },
     {
       icon: "🎨",
-      title: "I own the full UI lifecycle",
+      title: "Frontend is my strongest skill",
       description:
-        "From Figma file to deployed component — I handle design interpretation, cross-browser testing (Chrome, Firefox, Safari, Edge), performance optimization, and API integration without hand-holding.",
+        "Building polished React applications is where I deliver the most value. I convert Figma designs into responsive, accessible interfaces with reusable components, clean architecture, and production-ready performance.",
       proofTag: "Admin & Super Admin Dashboard",
       proofLink: "#projects",
       accentColor: "#00d4ff", // cyan — frontend
@@ -70,9 +71,9 @@ const WhyHire = () => {
     },
     {
       icon: "🚀",
-      title: "I've been trusted to ship solo",
+      title: "I take ownership from start to finish",
       description:
-        "Freelance MERN project for SAN Institute — sole developer from Figma wireframe to MongoDB backend to Vercel deployment. The client's HR onboarding time dropped by 50%.",
+        "As the sole developer for a freelance MERN project, I handled planning, frontend, backend, database design, testing, deployment, and client communication. The finished platform reduced HR onboarding time by 50%.",
       proofTag: "Employee Joining Form System",
       proofLink: "#projects",
       accentColor: "#7c3aed", // purple — freelance
@@ -84,14 +85,13 @@ const WhyHire = () => {
   return (
     <section id="why" className="why">
       <div className="why-inner">
-
         {/* FIX: Label changed — less defensive than "Why Hire Me" */}
         <div
           className="section-label"
           data-anim="down"
           style={{ textAlign: "center" }}
         >
-          Why it matters
+          Beyond the code
         </div>
         <h2
           className="section-title"
@@ -99,7 +99,7 @@ const WhyHire = () => {
           data-delay="100"
           style={{ textAlign: "center" }}
         >
-          What I bring to your team
+          The way I approach product development
         </h2>
 
         {/* FIX: Subtitle added — sets up the proof-first framing */}
@@ -109,7 +109,7 @@ const WhyHire = () => {
           data-delay="150"
           style={{ textAlign: "center", margin: "0 auto 3rem auto" }}
         >
-          Three things I can prove — not just claim.
+          The qualities that define how I work.
         </p>
 
         {/* FIX: 3-column grid — each card gets full width and attention */}
@@ -143,7 +143,6 @@ const WhyHire = () => {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

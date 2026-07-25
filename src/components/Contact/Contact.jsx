@@ -24,11 +24,11 @@ const Contact = () => {
   const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const autoReplyTemplateId = import.meta.env.VITE_EMAILJS_REPLY_TEMPLATE_ID;
 
-  console.log({
-    serviceId,
-    templateId,
-    autoReplyTemplateId,
-  });
+  // console.log({
+  //   serviceId,
+  //   templateId,
+  //   autoReplyTemplateId,
+  // });
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -163,7 +163,7 @@ const Contact = () => {
 
       console.log("Auto reply:", autoMail);
 
-      toast.success("Message sent! I'll get back to you within 24 hours.");
+      toast.success("Thanks! Your message has been sent successfully.");
 
       setFormData({
         name: "",
@@ -182,7 +182,7 @@ const Contact = () => {
       console.error("EmailJS Error:", err);
 
       toast.error(
-        "Failed to send. Please email directly: nandhakumarchinnasami@gmail.com",
+        "Something went wrong. Please try again or email me directly.",
       );
     } finally {
       setLoading(false);
@@ -192,11 +192,12 @@ const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="contact-inner">
-        <div className="section-label">Get In Touch</div>
-        <h2 className="contact-title">Let's Build Something Great Together</h2>
+        <div className="section-label">Let's Connect</div>
+        <h2 className="contact-title">Interested in working together?</h2>
         <p className="contact-sub">
-          Open to React Developer, Full Stack Engineer, and MERN Stack Developer
-          roles. Let's talk — I respond within 24 hours.
+          I'm currently open to React, Frontend and Full Stack opportunities.
+          Whether you're hiring, collaborating, or just want to talk about a
+          project, I'd love to hear from you.
         </p>
 
         <div className="contact-form" data-anim="up" data-delay="300">
@@ -228,7 +229,7 @@ const Contact = () => {
                     <input
                       type="email"
                       id="email"
-                      placeholder="john@company.com"
+                      placeholder="you@example.com"
                       value={formData.email}
                       onChange={handleChange}
                       className={`form-input ${errors.email ? "input-error" : ""}`}
@@ -245,7 +246,7 @@ const Contact = () => {
                   <input
                     type="text"
                     id="subject"
-                    placeholder="React Developer Role — Your Company"
+                    placeholder="Opportunity at Your Company"
                     value={formData.subject}
                     onChange={handleChange}
                     className={`form-input ${errors.subject ? "input-error" : ""}`}
@@ -268,6 +269,9 @@ const Contact = () => {
                   {errors.message && (
                     <p className="field-error">{errors.message}</p>
                   )}
+                  <div className="flex justify-end text-xs text-gray-500">
+                    {formData.message.length}/1000
+                  </div>
                 </div>
                 <button
                   type="submit"
@@ -285,7 +289,7 @@ const Contact = () => {
                     </>
                   ) : (
                     <>
-                      <span>Send Message</span>
+                      <span>Let's Talk</span>
                       <span className="btn-arrow">→</span>
                     </>
                   )}
@@ -333,7 +337,7 @@ const Contact = () => {
             GitHub
           </a>
           {/* Fix: Use direct path for resume (public folder) */}
-          <a
+          {/* <a
             href="/resume/NandhaKumar_FullStackDeveloper.docx"
             download
             className="contact-link"
@@ -347,7 +351,7 @@ const Contact = () => {
               <path d="M12 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
             </svg>
             Resume
-          </a>
+          </a> */}
         </div>
       </div>
     </section>

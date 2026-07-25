@@ -10,7 +10,7 @@
 // 8. observer.unobserve() called after animating — no redundant observations
 
 import { useEffect } from "react";
-import "./Experince.css"
+import "./Experince.css";
 
 const Experience = () => {
   useEffect(() => {
@@ -31,9 +31,6 @@ const Experience = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Resume file path — same as Hero
-  const resumeFile = "/resume/NandhaKumar_FullStackDeveloper.docx";
-
   const roles = [
     {
       role: "Program Analyst",
@@ -47,19 +44,25 @@ const Experience = () => {
       // FIX: 2 outcome-led bullets replacing 6 resume bullets
       // Each ends with a result — not just "I did X"
       bullets: [
-        "Shipped 4 HIPAA-compliant SaaS features — patient intake, Stripe payment flows, OCR scanning, and multilingual forms — used by 1,000+ US healthcare users.",
-        "Cut frontend API calls using React Query caching and code splitting across multi-tenant Admin and Super Admin dashboards with RBAC.",
+        "Collaborated with product, design, and backend teams to transform business requirements into production-ready healthcare SaaS workflows, delivering Patient Intake, Admin Dashboard, Payment, and Helpdesk modules.",
+        "Owned the complete frontend lifecycle—from workflow planning and Figma design reviews to React development, API integration, manual testing and production support for US healthcare clients.",
       ],
       // Tech chips — scannable, replaces the bullet that listed tech
       tech: [
         "React.js",
         "TypeScript",
         "Node.js",
+        "React Query",
         "Stripe",
         "OCR",
-        "i18n",
-        "React Query",
-      ],
+        "Figma",
+        "CI/CD",
+        "Workflow Design",
+        "Figma",
+        "Manual Testing",
+        "React",
+        "TypeScript",
+        "Stripe",      ],
       // FIX: Promotion from Trainee mentioned here as context
       note: null,
     },
@@ -82,7 +85,7 @@ const Experience = () => {
       // FIX: 3 bullets → 1 outcome bullet
       // The promotion mention is the strongest signal — lead with it
       bullets: [
-        "Built reusable React component library for patient multi-step intake forms — promoted to full Program Analyst within 4 months.",
+        "Built reusable React components and multi-step healthcare workflows, demonstrating strong ownership that led to promotion from Programmer Analyst Trainee to Program Analyst within four months.",
       ],
       tech: ["React.js", "Node.js", "MongoDB", "REST APIs", "ESLint"],
       // FIX: Promotion call-out as a separate visual note — makes it unmissable
@@ -105,7 +108,7 @@ const Experience = () => {
       },
       // FIX: Lead with the 50% metric — biggest proof point in entire portfolio
       bullets: [
-        "Cut HR onboarding time by 50% for SAN Institute by building a 7-module MERN employee onboarding platform — sole developer from Figma wireframe to production deployment in 2 months.",
+        "Designed, developed, tested, and deployed a complete MERN employee onboarding platform as a sole developer, reducing HR onboarding time by 50% through workflow automation.",
       ],
       tech: ["MongoDB", "Express.js", "React.js", "Node.js", "Figma"],
       note: null,
@@ -119,7 +122,7 @@ const Experience = () => {
           Work Experience
         </div>
         <h2 className="section-title" data-anim="left" data-delay="100">
-          Where I've made an impact
+          Building Products That Solve Real Business Problems
         </h2>
 
         {/* FIX: Subtitle added — sets expectation that full detail is in resume */}
@@ -129,20 +132,9 @@ const Experience = () => {
           data-delay="150"
           style={{ marginBottom: "0.5rem" }}
         >
-          Key outcomes from each role — full detail in the resume below.
+          From healthcare SaaS platforms to workflow automation, every role
+          strengthened my ability to build products from idea to production.
         </p>
-
-        {/* FIX: Resume download link directly under subtitle
-            Visitor who wants full detail doesn't have to scroll to footer */}
-        <a
-          href={resumeFile}
-          download
-          className="exp-resume-link"
-          data-anim="left"
-          data-delay="200"
-        >
-          ↓ Download full resume
-        </a>
 
         <div className="timeline">
           {roles.map((r, i) => (

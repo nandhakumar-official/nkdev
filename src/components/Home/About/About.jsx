@@ -1,119 +1,108 @@
 // src/components/Home/About.jsx
+
+import { getExperienceYears } from "../../../utils/experince";
 import "./About.css";
+
 const About = () => {
-  // What makes Nandha different — specific proof points, not tag clouds
   const proofPoints = [
     {
-      icon: "🏥",
-      title: "HIPAA-compliant systems",
-      desc: "Patient data, done right — secure intake forms, digital agreements, and OCR workflows used by 1,000+ US healthcare users.",
-    },
-    {
-      icon: "💳",
-      title: "Full payment lifecycle",
-      desc: "Stripe pre-payment, post-payment, success/failure handling, and billing dashboards — not just 'I've used Stripe'.",
-    },
-    {
-      icon: "🌍",
-      title: "Multilingual at scale",
-      desc: "i18n across English, Spanish, and Hindi — with Context API managing state across 8+ multi-step form components.",
+      icon: "🧩",
+      title: "Workflow Analysis",
+      desc: "I collaborate with product teams to understand business requirements, design workflow diagrams, identify edge cases, and transform ideas into scalable product flows before writing code.",
     },
     {
       icon: "🎨",
-      title: "Figma to production",
-      desc: "Pixel-perfect delivery across Chrome, Firefox, Safari, and Edge — I don't approximate, I match.",
+      title: "Figma to Production",
+      desc: "From approved Figma designs to pixel-perfect React applications with responsive layouts, reusable components, accessibility, and cross-browser compatibility.",
+    },
+    {
+      icon: "⚙️",
+      title: "Full Product Development",
+      desc: "Building complete healthcare SaaS workflows including onboarding, payments, agreements, dashboards, API integrations, and production-ready business applications.",
+    },
+    {
+      icon: "🧪",
+      title: "Quality & Delivery",
+      desc: "Manual testing, validation, bug fixing, production deployment, and continuous improvements to ensure reliable user experiences for real customers.",
     },
   ];
 
-  // Currently learning — replaces the duplicate stat cards
-  // Shows growth mindset, makes the right column useful and non-repetitive
   const learning = [
-    { label: "Next.js App Router", status: "active" },
-    { label: "Docker basics", status: "active" },
-    { label: "Jest + React Testing Library", status: "next" },
-    { label: "Redis caching", status: "next" },
+    { label: "CI/CD Automation", status: "active" },
+    { label: "Docker", status: "active" },
+    { label: "Next.js App Router", status: "next" },
+    { label: "Redis", status: "next" },
   ];
 
   return (
     <section id="about" className="about">
       <div className="about-inner">
-        {/* ── LEFT — Story, not resume bullets ── */}
+        {/* LEFT */}
         <div className="about-story" data-anim="left">
           <div className="section-label">About Me</div>
+
           <h2 className="section-title">
-            Turning complex problems into elegant products
+            Building software starts long before writing code.
           </h2>
 
-          {/*
-            BEFORE (generic):
-            "I'm Nandha Kumar C, a Full Stack MERN Developer..."
-            "At Siddha AI, I expanded into building complete SaaS..."
-
-            AFTER (specific story that only Nandha can tell):
-          */}
           <p>
-            I started as a frontend developer who cared too much about pixel
-            accuracy. Then I joined a healthcare company and learned what{" "}
-            <strong>"too much" actually means</strong> — when a patient can't
-            complete their intake form at midnight, it's not a UI bug. It's a
-            broken workflow.
-          </p>
-          <p>
-            That context changed how I build. I now obsess over edge cases,
-            fallback states, and what happens when the OCR fails at 2am. I've
-            shipped <strong>HIPAA-compliant systems</strong>, Stripe payment
-            flows, and multilingual patient forms used by real people in real
-            hospitals — all from a single React + TypeScript + Node.js codebase.
-          </p>
-          <p>
-            I work best at the intersection of product and engineering — where a
-            Figma file becomes something{" "}
-            <strong>patients and doctors actually use</strong>.
+            Every feature begins with understanding the business problem. Before
+            opening my editor, I work with product teams to discuss workflows,
+            identify user journeys, map edge cases, and convert requirements
+            into structured workflow diagrams.
           </p>
 
-          {/*
-            BEFORE (generic quote):
-            "I don't just build features — I design experiences that work at scale..."
+          <p>
+            Once the workflow is validated, I transform it into interactive
+            Figma designs, develop scalable React applications, integrate APIs,
+            implement business logic, perform manual testing, and deliver
+            production-ready healthcare SaaS products used by healthcare
+            providers in the United States.
+          </p>
 
-            AFTER (specific and verifiable):
-          */}
+          <p>
+            Over the past {getExperienceYears()} years, my role has evolved beyond frontend
+            development. Today I contribute across the complete product
+            lifecycle—from workflow planning and UI design to development,
+            testing, deployment, and continuous product improvements.
+          </p>
+
           <div className="highlight-card" data-anim="up" data-delay="200">
             <p>
-              "Sole developer on a MERN onboarding platform that cut a client's
-              HR process time by 50% — from Figma wireframe to MongoDB in two
-              months."
+              <strong>
+                "My strength isn't just building interfaces—it's translating
+                complex business workflows into production-ready software by
+                contributing across workflow analysis, Figma design,
+                development, testing, and deployment."
+              </strong>
             </p>
           </div>
         </div>
 
-        {/* ── RIGHT — Proof points + Currently Learning ── */}
-        {/*
-          BEFORE: 4 stat cards (2.5+, 5+, 3+, 1k+) — exact duplicates of Hero
-          AFTER:  2 useful things that don't appear anywhere else on the page
-        */}
+        {/* RIGHT */}
         <div data-anim="right">
-          {/* Proof points — what you actually did, not numbers */}
           <div className="about-proof-grid">
-            {proofPoints.map(({ icon, title, desc }, i) => (
+            {proofPoints.map(({ icon, title, desc }, index) => (
               <div
                 key={title}
                 className="about-proof-card"
                 data-anim="scale"
-                data-delay={`${(i + 1) * 100}`}
+                data-delay={`${(index + 1) * 100}`}
               >
                 <span className="about-proof-icon">{icon}</span>
+
                 <div>
                   <div className="about-proof-title">{title}</div>
+
                   <div className="about-proof-desc">{desc}</div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Currently Learning — fills the space left by removed stat cards
-              Shows growth mindset, makes senior engineers nod */}
           <div className="about-learning" data-anim="up" data-delay="400">
-            <div className="about-learning-label">Currently learning</div>
+            <div className="about-learning-label">Currently Learning</div>
+
             <div className="about-learning-tags">
               {learning.map(({ label, status }) => (
                 <span key={label} className={`about-learning-tag ${status}`}>

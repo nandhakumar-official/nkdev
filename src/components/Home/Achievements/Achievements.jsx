@@ -1,4 +1,5 @@
 // src/components/Home/Achievements.jsx
+
 import { useEffect, useRef } from "react";
 import "./Achievements.css";
 
@@ -11,7 +12,7 @@ const Achievements = () => {
       const target = parseFloat(el.dataset.target);
       const suffix = el.dataset.suffix || "";
       const span = el.querySelector("span");
-      const isFloat = target % 1 !== 0;
+
       const duration = 1500;
       const steps = 50;
       const increment = target / steps;
@@ -21,12 +22,15 @@ const Achievements = () => {
       const interval = setInterval(() => {
         step++;
         current = increment * step;
+
         if (step >= steps) {
           current = target;
           clearInterval(interval);
         }
+
         span.textContent =
-          (isFloat ? current.toFixed(1) : Math.floor(current)) + suffix;
+          (target % 1 !== 0 ? current.toFixed(1) : Math.floor(current)) +
+          suffix;
       }, duration / steps);
     };
 
@@ -37,6 +41,7 @@ const Achievements = () => {
             document
               .querySelectorAll(".ach-num[data-target]")
               .forEach(animateCounter);
+
             hasAnimated.current = true;
             counterObserver.disconnect();
           }
@@ -45,7 +50,6 @@ const Achievements = () => {
       { threshold: 0.3 },
     );
 
-    // FIX: anim-in instead of "visible" — matches scroll animation system
     const fadeObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -62,7 +66,9 @@ const Achievements = () => {
       .querySelectorAll(".ach-card")
       .forEach((el) => fadeObserver.observe(el));
 
-    if (sectionRef.current) counterObserver.observe(sectionRef.current);
+    if (sectionRef.current) {
+      counterObserver.observe(sectionRef.current);
+    }
 
     return () => {
       counterObserver.disconnect();
@@ -72,44 +78,41 @@ const Achievements = () => {
 
   const achievements = [
     {
-      type: "counter", // animated number
-      target: "6",
-      suffix: "",
-      prefix: "",
-      label: "Languages Supported",
+      type: "counter",
+      target: "1000",
+      suffix: "+",
+      label: "Healthcare Users Served",
       sublabel:
-        "English, Spanish , Chinese, Arabic, French, German — multilingual i18n in production",
-      icon: "🌍",
+        "Patient onboarding platform used across US healthcare organizations.",
+      icon: "🏥",
       delay: 100,
     },
     {
-      type: "static", // not a counter — percentage suits static better
+      type: "static",
       display: "50%",
-      label: "Less Onboarding Time",
+      label: "HR Process Reduction",
       sublabel:
-        "HR workflow reduction delivered for SAN Institute freelance project",
+        "Reduced employee onboarding time by building a complete MERN workflow.",
       icon: "⚡",
       delay: 200,
     },
     {
       type: "counter",
-      target: "7",
+      target: "4",
       suffix: "",
-      prefix: "",
-      label: "Onboarding Modules Built",
-      sublabel: "Personal info → payroll — complete MERN system delivered solo",
-      icon: "🗂️",
+      label: "Production SaaS Applications",
+      sublabel:
+        "Delivered healthcare, onboarding, payments, and admin platforms.",
+      icon: "🚀",
       delay: 300,
     },
     {
       type: "counter",
-      target: "4",
-      suffix: "+",
-      prefix: "",
-      label: "Countries Reached",
-      sublabel:
-        "US healthcare clients onboarded through patient intake systems",
-      icon: "🌐",
+      target: "6",
+      suffix: "",
+      label: "Core Production Integrations",
+      sublabel: "Stripe, OCR, Digital Signatures, i18n, PDF Generation, RBAC.",
+      icon: "🛠️",
       delay: 400,
     },
   ];
@@ -117,29 +120,33 @@ const Achievements = () => {
   return (
     <section id="achievements" className="achievements" ref={sectionRef}>
       <div className="ach-inner">
-        {/* FIX: Label and title updated to match new proof-based content */}
         <div
           className="section-label"
           data-anim="up"
           style={{ textAlign: "center" }}
         >
-          Proof of work
+          Impact
         </div>
+
         <h2
           className="section-title"
           data-anim="up"
           data-delay="100"
           style={{ textAlign: "center" }}
         >
-          Numbers that tell the story
+          Results I've delivered
         </h2>
+
         <p
           className="section-sub"
           data-anim="up"
           data-delay="150"
-          style={{ textAlign: "center", margin: "0 auto 2.5rem auto" }}
+          style={{
+            textAlign: "center",
+            margin: "0 auto 2.5rem auto",
+          }}
         >
-          Specific results — not the same stats you already saw above.
+          Real production work with measurable outcomes—not tutorial projects.
         </p>
 
         <div className="ach-grid">
@@ -150,24 +157,17 @@ const Achievements = () => {
               data-anim="scale"
               data-delay={item.delay}
             >
-              {/* Icon */}
               <div className="ach-icon">{item.icon}</div>
 
-              {/* Number — animated counter OR static display */}
               {item.type === "counter" ? (
                 <div
                   className="ach-num"
                   data-target={item.target}
                   data-suffix={item.suffix}
                 >
-                  {item.prefix && (
-                    <span className="ach-prefix">{item.prefix}</span>
-                  )}
                   <span>0</span>
-                  {/* suffix rendered by JS counter */}
                 </div>
               ) : (
-                // FIX: Static display for non-counter stats like "50%"
                 <div className="ach-num ach-num-static">
                   <span>{item.display}</span>
                 </div>
@@ -175,7 +175,6 @@ const Achievements = () => {
 
               <div className="ach-label">{item.label}</div>
 
-              {/* FIX: Sublabel added — explains what the number actually means */}
               <div className="ach-sublabel">{item.sublabel}</div>
             </div>
           ))}

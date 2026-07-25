@@ -11,13 +11,12 @@ const Hero = () => {
   useEffect(() => {
     typedInstance.current = new Typed(typedRef.current, {
       strings: [
-        "Full Stack Developer",
-        "React.js Developer",
         "MERN Stack Developer",
-        "Frontend Engineer",
-        "Backend Engineer",
-        "TypeScript Developer",
-        "SaaS Product Developer",
+        "Product-Focused Full Stack Developer",
+        "React & TypeScript Developer",
+        "Healthcare SaaS Engineer",
+        "Workflow-Driven Frontend Engineer",
+        "Figma to Production Developer"
       ],
       typeSpeed: 65,
       backSpeed: 35,
@@ -58,11 +57,11 @@ const Hero = () => {
   // These highlight what makes Nandha rare — not what every React dev has
   const domainBadges = [
     { label: "Healthcare SaaS", icon: "🏥" },
-    { label: "HIPAA Compliant", icon: "🔒" },
-    { label: "Stripe Payments", icon: "💳" },
-    { label: "OCR Integration", icon: "📄" },
-    { label: "US Clients", icon: "🌐" },
-    { label: "Multilingual i18n", icon: "🌍" },
+    { label: "Workflow Design", icon: "🧩" },
+    { label: "Figma → Production", icon: "🎨" },
+    { label: "Stripe Integration", icon: "💳" },
+    { label: "Manual Testing", icon: "🧪" },
+    { label: "HIPAA Workflows", icon: "🔒" },
   ];
 
   const experience = getExperienceYears();
@@ -78,15 +77,15 @@ const Hero = () => {
           <div className="hero-badge" data-anim="left" data-delay="100">
             <span className="badge-dot"></span>
             <span>
-              Open to React &amp; Full Stack roles · Tamil Nadu, Bangalore,
-              Kerala &amp; Remote
+              Building production-ready healthcare SaaS products for US clients
+              · Open to React & Full Stack opportunities
             </span>
           </div>
 
           {/* Headline stays — it's good */}
           <h1 className="hero-title" data-anim="left" data-delay="200">
-            Building <span className="grad">Scalable</span> Digital Experiences
-            with React, TypeScript &amp; MERN
+            Turning <span className="grad">Complex Workflows</span> into
+            Production-Ready Web Applications
           </h1>
 
           {/* Typed.js role line */}
@@ -97,8 +96,10 @@ const Hero = () => {
 
           {/* FIX 3: Subtitle is now ONE punchy line — not a resume sentence */}
           <p className="hero-sub" data-anim="up" data-delay="300">
-            {getExperienceYears()} years shipping healthcare SaaS for US clients
-            — from Figma to production. Based in Tamil Nadu, India.
+            Over {getExperienceYears()} years collaborating with product teams
+            to design workflows, create Figma prototypes, build scalable React
+            applications, integrate APIs, and ship production-ready healthcare
+            SaaS platforms for US clients.
           </p>
 
           {/* FIX 4: CTAs now have clear visual hierarchy
@@ -166,17 +167,20 @@ const Hero = () => {
               <div className="stat-num">
                 4<span>+</span>
               </div>
-              {/* FIX 7: "5+ Projects Built" → "4+ Production Apps" — more specific and honest */}
-              <div className="stat-label">Production Apps</div>
+              {/* FIX 7: "5+ Projects Built" → "4+ Products Delivered" — more specific and honest */}
+              <div className="stat-label">Products Delivered</div>
             </div>
             <div className="stat-card">
               {/* FIX 8: Replaced ∞ "Clean Code Lines" — it was a joke card
                   that undermined the credibility of the real stats next to it.
                   "3 Languages" refers to EN/ES/HI i18n — real and specific. */}
               <div className="stat-num">
-                6<span> Lang</span>
-              </div>
-              <div className="stat-label">i18n Supported</div>
+  End<span>-to-End</span>
+</div>
+
+<div className="stat-label">
+  Workflow Ownership
+</div>
             </div>
             <div className="stat-card">
               <div className="stat-num">

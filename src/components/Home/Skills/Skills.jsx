@@ -103,16 +103,16 @@ const Skills = () => {
   // FIX: Differentiators at the TOP — HIPAA, Stripe, OCR, Signatures are rare
   // Common skills (Agile, Responsive, Lazy Loading) pushed to bottom
   const conceptsSkills = [
+    { label: "Workflow Design", highlight: true },
     { label: "HIPAA Compliance", highlight: true },
-    { label: "Stripe Payments", highlight: true },
-    { label: "OCR Integration", highlight: true },
+    { label: "Stripe Integration", highlight: true },
+    { label: "OCR Processing", highlight: true },
     { label: "Digital Signatures", highlight: true },
-    { label: "i18n Multilingual", highlight: false },
     { label: "HTML-to-PDF", highlight: false },
-    { label: "Agile / Scrum", highlight: false },
-    { label: "Responsive Design", highlight: false },
-    { label: "Lazy Loading", highlight: false },
-    { label: "Code Splitting", highlight: false },
+    { label: "Multi-Step Forms", highlight: false },
+    { label: "Internationalization (i18n)", highlight: false },
+    { label: "Manual Testing", highlight: false },
+    { label: "CI/CD Pipeline", highlight: false },
   ];
 
   return (
@@ -142,8 +142,8 @@ const Skills = () => {
           data-delay="200"
           style={{ textAlign: "center", margin: "0 auto 3rem auto" }}
         >
-          React-first, full-stack capable — with domain skills most developers
-          don't have.
+          Production-ready technologies, product thinking, and workflow
+          expertise gained from building real healthcare SaaS platforms.
         </p>
 
         <div className="skills-grid">
@@ -173,8 +173,9 @@ const Skills = () => {
             </div>
             {/* Proof line — already existed, kept */}
             <p className="skill-proof">
-              4 production SaaS apps. Pixel-perfect Figma-to-code across Chrome,
-              Firefox, Safari, and Edge.
+              Designed complex workflows in Figma and transformed them into
+              production-ready React applications with pixel-perfect
+              implementation across modern browsers.
             </p>
           </div>
 
@@ -198,8 +199,9 @@ const Skills = () => {
             </div>
             {/* Proof line — already existed, kept */}
             <p className="skill-proof">
-              REST APIs serving US healthcare clients. JWT auth + RBAC across
-              multi-tenant systems.
+              Built secure REST APIs, role-based authentication, multi-step
+              business workflows, and healthcare SaaS features serving US
+              clients.
             </p>
           </div>
 
@@ -223,8 +225,9 @@ const Skills = () => {
             </div>
             {/* FIX: Proof line added — was completely missing before */}
             <p className="skill-proof">
-              MongoDB powering patient records, onboarding data, and
-              multi-tenant SaaS backends.
+              Structured MongoDB collections for patient intake, onboarding,
+              payment workflows, agreements, and multi-tenant healthcare
+              applications.
             </p>
           </div>
 
@@ -248,8 +251,10 @@ const Skills = () => {
             </div>
             {/* FIX: Proof line added — was completely missing before */}
             <p className="skill-proof">
-  Git-based Agile workflow with CI/CD pipelines, code reviews, and Figma-to-production delivery.
-</p>
+              Daily workflow includes Git, GitHub, Figma, Postman, CI/CD
+              pipelines, manual testing, and collaborative development with
+              product and backend teams.
+            </p>
           </div>
 
           {/* ── CONCEPTS & INTEGRATIONS — Full width, rare skills first ── */}
@@ -281,9 +286,9 @@ const Skills = () => {
             </div>
             {/* FIX: Proof line added — was completely missing before */}
             <p className="skill-proof">
-              HIPAA compliance, Stripe billing, OCR scanning, and multilingual
-              i18n — shipped in production for US healthcare clients. Not side
-              projects.
+              Experienced in workflow architecture, HIPAA-compliant healthcare
+              products, Stripe payment integration, OCR processing, multilingual
+              applications, digital signatures, and HTML-to-PDF generation.
             </p>
           </div>
         </div>
