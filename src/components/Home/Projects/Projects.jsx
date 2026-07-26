@@ -32,7 +32,7 @@ const Projects = () => {
       metricHeadline: "1,000+ US healthcare users onboarded",
       title: "Patient Form & Agreement System",
       problem:
-        "Challenge: Healthcare providers needed a secure digital workflow to replace manual patient onboarding.",
+        "Healthcare providers needed a secure digital workflow to replace manual patient onboarding.",
       description:
         "Built a HIPAA-compliant patient onboarding platform featuring OCR, multilingual forms, digital signatures, appointment scheduling, and secure document workflows.",
       // FIX: Outcome chips replace feature bullet list
