@@ -35,21 +35,13 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-
-  width: fit-content;
-
+  width: max-content;
   padding: 0.55rem 1rem;
-
   border-radius: 999px;
-
   background: rgba(0, 212, 255, 0.08);
-
   border: 1px solid rgba(0, 212, 255, 0.2);
-
   color: var(--accent);
-
   font-size: 0.82rem;
-
   margin-bottom: 1.5rem;
 }
 
@@ -237,10 +229,15 @@
    RIGHT
 ===================================================== */
 .hero-avatar {
-  width: 78%;
-  max-width: 210px;
-  height: auto;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.28);
+  /*zoom*/object-position: center 20%;
+  -webkit-transform: scale(1.28);
+  -moz-transform: scale(1.28);
+  -ms-transform: scale(1.28);
+  -o-transform: scale(1.28);
 }
 
 .hero-right {
@@ -352,12 +349,9 @@
 
 .stat-cards {
   display: grid;
-
   grid-template-columns: repeat(2, minmax(130px, 1fr));
-
   gap: 1rem;
-
-  width: 100%;
+  width: 90%;
 }
 
 .stat-card {
@@ -447,7 +441,6 @@
 
   .hero-badge {
     font-size: 0.72rem;
-
     text-align: center;
   }
 
@@ -463,7 +456,6 @@
 
   .stat-cards {
     grid-template-columns: repeat(2, 1fr);
-
     gap: 0.8rem;
   }
 

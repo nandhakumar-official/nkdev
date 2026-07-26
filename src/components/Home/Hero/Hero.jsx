@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import nkLogo from "../../../assets/Nk Logo.png";
+import nkLogo from "../../../assets/Nandhakumar Chinnasami.png";
 import Typed from "typed.js";
 import "./Hero.css";
 import { getExperienceYears } from "../../../utils/experince.js";
@@ -145,7 +145,7 @@ const Hero = () => {
               <img
                 src={nkLogo}
                 alt="Nandha Kumar C — Full Stack Developer"
-                className="hero-avatar"
+                className="hero-avatar rounded-full"
               />
             </div>
           </div>
