@@ -1,17 +1,14 @@
 // src/components/Home/Skills.jsx
-// AUDIT FIXES APPLIED:
-// 1. Proof line added to ALL 5 cards (Database + Tools + Concepts were missing)
-// 2. "Primary" badge added to Frontend card — signals your core strength
-// 3. "Domain expertise" badge added to Concepts — signals these are rare
-// 4. First 4 concepts get skill-tag-highlight class — HIPAA/Stripe/OCR/Signatures stand out
-// 5. Section subtitle updated — specific, not generic
-// 6. VanillaTilt properly destroyed on unmount (memory leak fix)
-// 7. observer.unobserve() called after animating — no redundant re-observations
-// 8. frontend-card class removed — replaced with skill-featured (cleaner naming)
 
 import { useEffect, useRef } from "react";
 import "./Skills.css";
 import VanillaTilt from "vanilla-tilt";
+import {
+  LuMonitorSmartphone,
+  LuDatabase,
+  LuWrench,
+  LuServer,
+} from "react-icons/lu";
 
 const Skills = () => {
   const tiltRefs = useRef([]);
@@ -158,7 +155,9 @@ const Skills = () => {
                 className="skill-cat-icon"
                 style={{ background: "rgba(0,212,255,0.1)" }}
               >
-                ⚛️
+                <LuMonitorSmartphone
+                  color="#00d4ff"
+                />
               </div>
               <div className="skill-cat-name">Frontend</div>
               {/* FIX: Badge signals primary strength to recruiter */}
@@ -186,7 +185,9 @@ const Skills = () => {
                 className="skill-cat-icon"
                 style={{ background: "rgba(16,185,129,0.1)" }}
               >
-                ⚙️
+                <LuServer
+                  color="#10b981"
+                />
               </div>
               <div className="skill-cat-name">Backend</div>
             </div>
@@ -212,7 +213,9 @@ const Skills = () => {
                 className="skill-cat-icon"
                 style={{ background: "rgba(124,58,237,0.1)" }}
               >
-                🗄️
+                <LuDatabase 
+                  color="#8b5cf6"
+                />
               </div>
               <div className="skill-cat-name">Database</div>
             </div>
@@ -238,7 +241,9 @@ const Skills = () => {
                 className="skill-cat-icon"
                 style={{ background: "rgba(245,158,11,0.1)" }}
               >
-                🛠️
+                <LuWrench  
+                  color="#f59e0b"
+                />
               </div>
               <div className="skill-cat-name">Tools &amp; Platforms</div>
             </div>
@@ -266,9 +271,11 @@ const Skills = () => {
             <div className="skill-cat-header">
               <div
                 className="skill-cat-icon"
-                style={{ background: "rgba(239,68,68,0.1)" }}
+                style={{ background: "rgba(239,68,68,0.12)" }}
               >
-                💡
+                <LuDatabase 
+                  color="#ef4444"
+                />
               </div>
               <div className="skill-cat-name">Concepts &amp; Integrations</div>
               {/* FIX: Badge communicates rarity of these skills */}

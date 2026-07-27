@@ -108,12 +108,31 @@
 
 }
 
-.about-proof-icon {
+.about-proof-icon{
+    width:52px;
+    height:52px;
 
-  font-size: 1.4rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-  flex-shrink: 0;
+    border-radius:14px;
 
+    background:rgba(255,255,255,.04);
+
+    border:1px solid var(--border);
+
+    flex-shrink:0;
+}
+
+.about-learning-tag{
+    display:flex;
+    align-items:center;
+    gap:.45rem;
+}
+
+.about-learning-tag svg{
+    flex-shrink:0;
 }
 
 .about-proof-title {

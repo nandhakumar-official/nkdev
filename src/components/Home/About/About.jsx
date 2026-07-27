@@ -2,26 +2,39 @@
 
 import { getExperienceYears } from "../../../utils/experince";
 import "./About.css";
+import {
+  FiGitBranch,
+  FiPenTool,
+  FiLayers,
+  FiCheckCircle,
+  FiZap,
+  FiArrowRight,
+} from "react-icons/fi";
+
 
 const About = () => {
   const proofPoints = [
     {
-      icon: "🧩",
+      icon: FiGitBranch,
+      color: "#8B5CF6",
       title: "Workflow Analysis",
       desc: "I collaborate with product teams to understand business requirements, design workflow diagrams, identify edge cases, and transform ideas into scalable product flows before writing code.",
     },
     {
-      icon: "🎨",
+      icon: FiPenTool,
+      color: "#F97316",
       title: "Figma to Production",
       desc: "From approved Figma designs to pixel-perfect React applications with responsive layouts, reusable components, accessibility, and cross-browser compatibility.",
     },
     {
-      icon: "⚙️",
+      icon: FiLayers,
+      color: "#00D4FF",
       title: "Full Product Development",
       desc: "Building complete healthcare SaaS workflows including onboarding, payments, agreements, dashboards, API integrations, and production-ready business applications.",
     },
     {
-      icon: "🧪",
+      icon: FiCheckCircle,
+      color: "#10B981",
       title: "Quality & Delivery",
       desc: "Manual testing, validation, bug fixing, production deployment, and continuous improvements to ensure reliable user experiences for real customers.",
     },
@@ -61,10 +74,11 @@ const About = () => {
           </p>
 
           <p>
-            Over the past {getExperienceYears()} years, my role has evolved beyond frontend
-            development. Today I contribute across the complete product
-            lifecycle—from workflow planning and UI design to development,
-            testing, deployment, and continuous product improvements.
+            Over the past {getExperienceYears()} years, my role has evolved
+            beyond frontend development. Today I contribute across the complete
+            product lifecycle—from workflow planning and UI design to
+            development, testing, deployment, and continuous product
+            improvements.
           </p>
 
           <div className="highlight-card" data-anim="up" data-delay="200">
@@ -82,18 +96,19 @@ const About = () => {
         {/* RIGHT */}
         <div data-anim="right">
           <div className="about-proof-grid">
-            {proofPoints.map(({ icon, title, desc }, index) => (
+            {proofPoints.map(({ icon: Icon, color, title, desc }, index) => (
               <div
                 key={title}
                 className="about-proof-card"
                 data-anim="scale"
                 data-delay={`${(index + 1) * 100}`}
               >
-                <span className="about-proof-icon">{icon}</span>
+                <div className="about-proof-icon" style={{ color }}>
+                  <Icon size={22} />
+                </div>
 
                 <div>
                   <div className="about-proof-title">{title}</div>
-
                   <div className="about-proof-desc">{desc}</div>
                 </div>
               </div>
@@ -106,7 +121,13 @@ const About = () => {
             <div className="about-learning-tags">
               {learning.map(({ label, status }) => (
                 <span key={label} className={`about-learning-tag ${status}`}>
-                  {status === "active" ? "⚡" : "→"} {label}
+                  {status === "active" ? (
+                    <FiZap size={14} />
+                  ) : (
+                    <FiArrowRight size={14} />
+                  )}
+
+                  {label}
                 </span>
               ))}
             </div>

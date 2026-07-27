@@ -1,18 +1,8 @@
 // src/components/Home/WhyHire.jsx
-// AUDIT FIXES APPLIED:
-// 1. 6 generic cards → 3 proof-backed cards
-//    Every card now ends with a verifiable fact from your actual work
-// 2. Each card links back to something the visitor already saw in Projects
-//    — creates mental connections across sections
-// 3. "Why Hire Me" label → "Why it matters" — less defensive framing
-// 4. Grid changes: 3 equal cards in a row instead of 2x3
-//    — fewer cards = each one gets more weight and attention
-// 5. observer.disconnect() on cleanup — cleaner than loop unobserve
-// 6. anim-in instead of "visible" — matches scroll animation system
-// 7. Added "proof tag" visual element — makes the evidence scannable
 
 import { useEffect } from "react";
 import "./WhyHire.css";
+import { FaProjectDiagram, FaReact, FaRocket } from "react-icons/fa";
 
 const WhyHire = () => {
   useEffect(() => {
@@ -34,49 +24,37 @@ const WhyHire = () => {
     return () => observer.disconnect();
   }, []);
 
-  // FIX: 3 proof-backed cards replacing 6 generic claim cards
-  //
-  // OLD approach — unverifiable claims:
-  // "React Ecosystem Depth" — I know the ecosystem deeply
-  // "Full Stack Ownership" — I've built complete products solo
-  // "Healthcare & SaaS Domain" — Real experience with HIPAA
-  // "Performance First" — I optimize before it becomes a problem
-  // "Design-to-Code Precision" — I convert Figma designs pixel-perfectly
-  // "Agile Team Player" — Comfortable in sprint cycles
-  //
-  // NEW approach — each card ends with specific proof the visitor can verify:
-
   const reasons = [
     {
-      icon: "🧩",
+      icon: <FaProjectDiagram />,
       title: "I solve product problems, not just coding tasks",
       description:
         "I enjoy turning complicated workflows into simple user experiences. From multi-step patient onboarding to admin dashboards, I focus on reducing friction while keeping the system scalable.",
       proofTag: "Patient Intake Platform",
       proofLink: "#projects",
-      accentColor: "#10b981", // green — healthcare
+      accentColor: "#10b981",
       anim: "left",
       delay: "100",
     },
     {
-      icon: "🎨",
+      icon: <FaReact />,
       title: "Frontend is my strongest skill",
       description:
         "Building polished React applications is where I deliver the most value. I convert Figma designs into responsive, accessible interfaces with reusable components, clean architecture, and production-ready performance.",
       proofTag: "Admin & Super Admin Dashboard",
       proofLink: "#projects",
-      accentColor: "#00d4ff", // cyan — frontend
+      accentColor: "#00d4ff",
       anim: "up",
       delay: "200",
     },
     {
-      icon: "🚀",
+      icon: <FaRocket />,
       title: "I take ownership from start to finish",
       description:
         "As the sole developer for a freelance MERN project, I handled planning, frontend, backend, database design, testing, deployment, and client communication. The finished platform reduced HR onboarding time by 50%.",
       proofTag: "Employee Joining Form System",
       proofLink: "#projects",
-      accentColor: "#7c3aed", // purple — freelance
+      accentColor: "#7c3aed",
       anim: "right",
       delay: "100",
     },
@@ -129,7 +107,14 @@ const WhyHire = () => {
               />
 
               <div className="why-card-inner">
-                <div className="why-icon">{reason.icon}</div>
+                <div
+                  className="why-icon"
+                  style={{
+                    color: reason.iconColor,
+                  }}
+                >
+                  {reason.icon}
+                </div>
                 <div className="why-title">{reason.title}</div>
                 <div className="why-desc">{reason.description}</div>
 

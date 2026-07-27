@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import "./Achievements.css";
+import { FaHospital, FaBolt, FaRocket, FaCogs } from "react-icons/fa";
 
 const Achievements = () => {
   const sectionRef = useRef(null);
@@ -84,7 +85,7 @@ const Achievements = () => {
       label: "Healthcare Users Served",
       sublabel:
         "Patient onboarding platform used across US healthcare organizations.",
-      icon: "🏥",
+      icon: <FaHospital />,
       delay: 100,
     },
     {
@@ -93,7 +94,7 @@ const Achievements = () => {
       label: "HR Process Reduction",
       sublabel:
         "Reduced employee onboarding time by building a complete MERN workflow.",
-      icon: "⚡",
+      icon: <FaBolt />,
       delay: 200,
     },
     {
@@ -103,7 +104,7 @@ const Achievements = () => {
       label: "Production SaaS Applications",
       sublabel:
         "Delivered healthcare, onboarding, payments, and admin platforms.",
-      icon: "🚀",
+      icon: <FaRocket />,
       delay: 300,
     },
     {
@@ -112,7 +113,7 @@ const Achievements = () => {
       suffix: "",
       label: "Core Production Integrations",
       sublabel: "Stripe, OCR, Digital Signatures, i18n, PDF Generation, RBAC.",
-      icon: "🛠️",
+      icon: <FaCogs />,
       delay: 400,
     },
   ];
@@ -157,7 +158,14 @@ const Achievements = () => {
               data-anim="scale"
               data-delay={item.delay}
             >
-              <div className="ach-icon">{item.icon}</div>
+              <div
+                className="ach-icon"
+                style={{
+                  color: item.color,
+                }}
+              >
+                {item.icon}
+              </div>
 
               {item.type === "counter" ? (
                 <div

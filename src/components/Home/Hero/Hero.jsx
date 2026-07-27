@@ -3,11 +3,21 @@ import nkLogo from "../../../assets/Nandhakumar Chinnasami.png";
 import Typed from "typed.js";
 import "./Hero.css";
 import { getExperienceYears } from "../../../utils/experince.js";
-
+import {
+  FiActivity,
+  FiGitBranch,
+  FiPenTool,
+  FiCreditCard,
+  FiShield,
+  FiCheckCircle,
+  FiBriefcase,
+  FiPackage,
+  FiUsers,
+} from "react-icons/fi";
 const Hero = () => {
   const typedRef = useRef(null);
   const typedInstance = useRef(null);
-
+  const resumeFile = "/NKDEV/resume/NandhaKumar_FullStack_Developer_Resume.pdf";
   useEffect(() => {
     typedInstance.current = new Typed(typedRef.current, {
       strings: [
@@ -16,7 +26,7 @@ const Hero = () => {
         "React & TypeScript Developer",
         "Healthcare SaaS Engineer",
         "Workflow-Driven Frontend Engineer",
-        "Figma to Production Developer"
+        "Figma to Production Developer",
       ],
       typeSpeed: 65,
       backSpeed: 35,
@@ -31,8 +41,6 @@ const Hero = () => {
       typedInstance.current?.destroy();
     };
   }, []);
-
-  const resumeFile = "/resume/NandhaKumar_FullStackDeveloper.docx";
 
   const scrollToProjects = () =>
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
@@ -56,12 +64,36 @@ const Hero = () => {
   // FIX 1: Domain badges replace generic tech stack badges
   // These highlight what makes Nandha rare — not what every React dev has
   const domainBadges = [
-    { label: "Healthcare SaaS", icon: "🏥" },
-    { label: "Workflow Design", icon: "🧩" },
-    { label: "Figma → Production", icon: "🎨" },
-    { label: "Stripe Integration", icon: "💳" },
-    { label: "Manual Testing", icon: "🧪" },
-    { label: "HIPAA Workflows", icon: "🔒" },
+    {
+      label: "Healthcare SaaS",
+      icon: FiActivity,
+      color: "#10B981",
+    },
+    {
+      label: "Workflow Design",
+      icon: FiGitBranch,
+      color: "#8B5CF6",
+    },
+    {
+      label: "Figma → Production",
+      icon: FiPenTool,
+      color: "#F97316",
+    },
+    {
+      label: "Stripe Integration",
+      icon: FiCreditCard,
+      color: "#00D4FF",
+    },
+    {
+      label: "Manual Testing",
+      icon: FiCheckCircle,
+      color: "#FACC15",
+    },
+    {
+      label: "HIPAA Workflows",
+      icon: FiShield,
+      color: "#EF4444",
+    },
   ];
 
   const experience = getExperienceYears();
@@ -121,9 +153,15 @@ const Hero = () => {
               Not every React dev has HIPAA + OCR + Stripe + US healthcare.
           */}
           <div className="domain-badges" data-anim="up" data-delay="500">
-            {domainBadges.map(({ label, icon }) => (
+            {domainBadges.map(({ label, icon: Icon, color }) => (
               <span key={label} className="domain-badge">
-                <span className="domain-badge-icon">{icon}</span>
+                <Icon
+                  size={15}
+                  style={{
+                    color,
+                    flexShrink: 0,
+                  }}
+                />
                 {label}
               </span>
             ))}
@@ -146,6 +184,10 @@ const Hero = () => {
                 src={nkLogo}
                 alt="Nandha Kumar C — Full Stack Developer"
                 className="hero-avatar rounded-full"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                draggable={false}
               />
             </div>
           </div>
@@ -156,6 +198,7 @@ const Hero = () => {
           */}
           <div className="stat-cards" data-anim="right" data-delay="300">
             <div className="stat-card">
+              <FiBriefcase className="stat-icon" />
               <div className="stat-num">
                 {year}
                 <span>.{decimal}+</span>
@@ -164,6 +207,7 @@ const Hero = () => {
               <div className="stat-label">Years Experience</div>
             </div>
             <div className="stat-card">
+              <FiPackage className="stat-icon" />
               <div className="stat-num">
                 4<span>+</span>
               </div>
@@ -171,18 +215,15 @@ const Hero = () => {
               <div className="stat-label">Products Delivered</div>
             </div>
             <div className="stat-card">
-              {/* FIX 8: Replaced ∞ "Clean Code Lines" — it was a joke card
-                  that undermined the credibility of the real stats next to it.
-                  "3 Languages" refers to EN/ES/HI i18n — real and specific. */}
+              <FiGitBranch className="stat-icon" />
               <div className="stat-num">
-  End<span>-to-End</span>
-</div>
+                End<span>-to-End</span>
+              </div>
 
-<div className="stat-label">
-  Workflow Ownership
-</div>
+              <div className="stat-label">Workflow Ownership</div>
             </div>
             <div className="stat-card">
+              <FiUsers className="stat-icon" />
               <div className="stat-num">
                 1k<span>+</span>
               </div>

@@ -57,9 +57,25 @@
   transform: scaleX(1);
 }
 
-.why-icon {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+.why-icon{
+    width:64px;
+    height:64px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:1.6rem;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid var(--border);
+
+    margin-bottom:1.2rem;
+
+    transition:.35s;
 }
 
 .why-title {
