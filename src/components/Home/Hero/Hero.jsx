@@ -17,7 +17,7 @@ import {
 const Hero = () => {
   const typedRef = useRef(null);
   const typedInstance = useRef(null);
-  const resumeFile = "/NKDEV/resume/NandhaKumar_FullStack_Developer_Resume.pdf";
+  const resumeFile = "/nkdev/resume/NandhaKumar_FullStack_Developer_Resume.pdf";
   useEffect(() => {
     typedInstance.current = new Typed(typedRef.current, {
       strings: [

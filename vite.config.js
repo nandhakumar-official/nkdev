@@ -11,5 +11,5 @@ export default defineConfig({
     open: true,
     port: 3007,
   },
-  base: "/NKDEV/",
+  base: "/nkdev/",
 });
