@@ -288,21 +288,22 @@
 
 .avatar-ring {
   position: absolute;
-
   inset: -12px;
-
   border-radius: 50%;
-
   border: 2px solid transparent;
 
   background: linear-gradient(135deg, var(--accent), var(--accent2)) border-box;
 
+  /* Chrome, Edge, Safari */
   -webkit-mask:
     linear-gradient(#fff 0 0) padding-box,
     linear-gradient(#fff 0 0);
-
   -webkit-mask-composite: destination-out;
 
+  /* Firefox */
+  mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
   mask-composite: exclude;
 
   animation: spin 12s linear infinite;
