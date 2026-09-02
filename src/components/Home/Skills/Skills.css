@@ -95,9 +95,9 @@
 
     transition:.35s ease;
 }
-.skill-category:hover .skill-cat-icon{
+/* .skill-category:hover .skill-cat-icon{
     transform:rotate(-8deg) scale(1.08);
-}
+} */
 
 .skill-cat-name {
   font-family: "Syne", sans-serif;
