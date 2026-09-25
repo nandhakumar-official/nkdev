@@ -128,7 +128,8 @@ const Hero = () => {
 
           {/* FIX 3: Subtitle is now ONE punchy line — not a resume sentence */}
           <p className="hero-sub" data-anim="up" data-delay="300">
-            Over {getExperienceYears()} years collaborating with product teams
+            Over 2.8+ years collaborating with product teams
+            {/* Over {getExperienceYears()} years collaborating with product teams */}
             to design workflows, create Figma prototypes, build scalable React
             applications, integrate APIs, and ship production-ready healthcare
             SaaS platforms for US clients.

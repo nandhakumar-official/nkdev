@@ -74,7 +74,8 @@ const About = () => {
           </p>
 
           <p>
-            Over the past {getExperienceYears()} years, my role has evolved
+            {/* Over the past {getExperienceYears()} years, my role has evolved */}
+            Over the past 2.8+ years, my role has evolved
             beyond frontend development. Today I contribute across the complete
             product lifecycle—from workflow planning and UI design to
             development, testing, deployment, and continuous product
