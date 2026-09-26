@@ -33,12 +33,12 @@ const Experience = () => {
 
   const roles = [
     {
-      role: "Program Analyst",
+      role: "Frontend Developer",
       company: "Siddha AI",
       location: "Salem",
       // FIX: Corrected date — Apr 2024 not Mar 2024
-      date: "Apr 2024 – Present",
-      tag: "Full-time · Current Role",
+      date: "Dec 2023 – Aug 2026",
+      tag: "Full-time",
       tagStyle: {},
       dotStyle: {},
       // FIX: 2 outcome-led bullets replacing 6 resume bullets
@@ -59,38 +59,37 @@ const Experience = () => {
         "CI/CD",
         "Workflow Design",
         "Figma",
-        "Manual Testing",
         "React",
         "TypeScript",
         "Stripe",      ],
       // FIX: Promotion from Trainee mentioned here as context
       note: null,
     },
-    {
-      role: "Programmer Analyst Trainee",
-      company: "Siddha AI",
-      location: "Salem",
-      // FIX: Corrected date — Dec 2023–Mar 2024 not Feb 2024
-      date: "Dec 2023 – Mar 2024",
-      tag: "Internship",
-      tagStyle: {
-        background: "rgba(124,58,237,0.1)",
-        color: "#a78bfa",
-        borderColor: "rgba(124,58,237,0.2)",
-      },
-      dotStyle: {
-        background: "var(--accent2)",
-        boxShadow: "0 0 12px rgba(124,58,237,0.4)",
-      },
-      // FIX: 3 bullets → 1 outcome bullet
-      // The promotion mention is the strongest signal — lead with it
-      bullets: [
-        "Built reusable React components and multi-step healthcare workflows, demonstrating strong ownership that led to promotion from Programmer Analyst Trainee to Program Analyst within four months.",
-      ],
-      tech: ["React.js", "Node.js", "MongoDB", "REST APIs", "ESLint"],
-      // FIX: Promotion call-out as a separate visual note — makes it unmissable
-      note: "⬆ Promoted to Program Analyst — Apr 2024",
-    },
+    // {
+    //   role: "Programmer Analyst Trainee",
+    //   company: "Siddha AI",
+    //   location: "Salem",
+    //   // FIX: Corrected date — Dec 2023–Mar 2024 not Feb 2024
+    //   date: "Dec 2023 – Mar 2024",
+    //   tag: "Internship",
+    //   tagStyle: {
+    //     background: "rgba(124,58,237,0.1)",
+    //     color: "#a78bfa",
+    //     borderColor: "rgba(124,58,237,0.2)",
+    //   },
+    //   dotStyle: {
+    //     background: "var(--accent2)",
+    //     boxShadow: "0 0 12px rgba(124,58,237,0.4)",
+    //   },
+    //   // FIX: 3 bullets → 1 outcome bullet
+    //   // The promotion mention is the strongest signal — lead with it
+    //   bullets: [
+    //     "Built reusable React components and multi-step healthcare workflows, demonstrating strong ownership that led to promotion from Programmer Analyst Trainee to Program Analyst within four months.",
+    //   ],
+    //   tech: ["React.js", "Node.js", "MongoDB", "REST APIs", "ESLint"],
+    //   // FIX: Promotion call-out as a separate visual note — makes it unmissable
+    //   note: "⬆ Promoted to Program Analyst — Apr 2024",
+    // },
     {
       role: "Full Stack Developer",
       company: "Freelance",

@@ -85,7 +85,7 @@ const Hero = () => {
       color: "#00D4FF",
     },
     {
-      label: "Manual Testing",
+      label: "Jest & RTL Testing",
       icon: FiCheckCircle,
       color: "#FACC15",
     },

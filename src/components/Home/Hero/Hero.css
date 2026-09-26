@@ -8,8 +8,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: clamp(90px, 10vw, 120px) clamp(20px, 5vw, 60px)
-    clamp(50px, 6vw, 90px);
+  padding: clamp(90px, 10vw, 120px) clamp(20px, 5vw, 60px) clamp(50px, 6vw, 90px);
 }
 
 .hero-grid {
@@ -35,22 +34,32 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  width: max-content;
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
   padding: 0.55rem 1rem;
   border-radius: 999px;
   background: rgba(0, 212, 255, 0.08);
   border: 1px solid rgba(0, 212, 255, 0.2);
   color: var(--accent);
   font-size: 0.82rem;
+  line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
 .badge-dot {
+  display: block;
+  flex: 0 0 8px;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: #10b981;
   animation: badgePulse 2s infinite;
+}
+
+.hero-badge > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 @keyframes badgePulse {
@@ -150,7 +159,7 @@
   margin-bottom: 2rem;
 }
 
-.hero-btns > * {
+.hero-btns>* {
   min-width: 190px;
 }
 
@@ -233,7 +242,8 @@
   height: 100%;
   object-fit: cover;
   transform: scale(1.28);
-  /*zoom*/object-position: center 20%;
+  /*zoom*/
+  object-position: center 20%;
   -webkit-transform: scale(1.28);
   -moz-transform: scale(1.28);
   -ms-transform: scale(1.28);
@@ -277,11 +287,9 @@
 
   border-radius: 50%;
 
-  background: radial-gradient(
-    circle,
-    rgba(96, 165, 250, 0.25),
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(96, 165, 250, 0.25),
+      transparent 70%);
 
   filter: blur(35px);
 }
@@ -385,21 +393,21 @@
   margin-top: 0.4rem;
 }
 
-.stat-icon{
-    width:42px;
-    height:42px;
+.stat-icon {
+  width: 42px;
+  height: 42px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    border-radius:50%;
+  border-radius: 50%;
 
-    background:rgba(0,212,255,.08);
+  background: rgba(0, 212, 255, .08);
 
-    color:var(--accent);
+  color: var(--accent);
 
-    margin:0 auto 1rem;
+  margin: 0 auto 1rem;
 }
 
 /* =====================================================
@@ -460,13 +468,14 @@
   .hero-badge {
     font-size: 0.72rem;
     text-align: center;
+    white-space: normal;
   }
 
   .hero-btns {
     width: 100%;
   }
 
-  .hero-btns > * {
+  .hero-btns>* {
     width: 100%;
 
     min-width: unset;
@@ -508,6 +517,7 @@
   .hero-badge {
     width: 100%;
     justify-content: center;
+    padding-inline: 0.85rem;
   }
 
   .typed-wrapper {

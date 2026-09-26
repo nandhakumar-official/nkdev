@@ -12,4 +12,8 @@ export default defineConfig({
     port: 3007,
   },
   base: "/nkdev/",
+  build: {
+    // Keep original source files out of the production deployment.
+    sourcemap: false,
+  },
 });

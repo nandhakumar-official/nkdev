@@ -11,43 +11,43 @@ import {
 } from "react-icons/lu";
 
 const Skills = () => {
-  const tiltRefs = useRef([]);
+  // const tiltRefs = useRef([]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("anim-in");
-            observer.unobserve(entry.target); // animate once only
-          }
-        });
-      },
-      { threshold: 0.12 },
-    );
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           entry.target.classList.add("anim-in");
+  //           observer.unobserve(entry.target); // animate once only
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.12 },
+  //   );
 
-    const cards = document.querySelectorAll(".skill-category");
+  //   const cards = document.querySelectorAll(".skill-category");
 
-    tiltRefs.current = Array.from(cards);
-    tiltRefs.current.forEach((el) => {
-      observer.observe(el);
-      VanillaTilt.init(el, {
-        max: 8,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.15,
-        scale: 1.03,
-        perspective: 1000,
-      });
-    });
+  //   tiltRefs.current = Array.from(cards);
+  //   tiltRefs.current.forEach((el) => {
+  //     observer.observe(el);
+  //     VanillaTilt.init(el, {
+  //       max: 8,
+  //       speed: 400,
+  //       glare: true,
+  //       "max-glare": 0.15,
+  //       scale: 1.03,
+  //       perspective: 1000,
+  //     });
+  //   });
 
-    // FIX: proper cleanup — was missing VanillaTilt destroy before
-    return () => {
-      tiltRefs.current.forEach((el) => {
-        if (el.vanillaTilt) el.vanillaTilt.destroy();
-      });
-    };
-  }, []);
+  //   // FIX: proper cleanup — was missing VanillaTilt destroy before
+  //   return () => {
+  //     tiltRefs.current.forEach((el) => {
+  //       if (el.vanillaTilt) el.vanillaTilt.destroy();
+  //     });
+  //   };
+  // }, []);
 
   // ── Skill data ──────────────────────────────────────────────────────────
 
@@ -64,13 +64,14 @@ const Skills = () => {
     "React Query",
     "Context API",
     "React Router",
-    "Redux",
+    "Redux Toolkit",
     "Responsive Design",
     "Lazy Loading",
     "Code Splitting",
     "Progressive Web Apps",
     "Accessibility",
     "Cross-Browser Testing",
+    "Jest & React Testing Library(RTL)",
   ];
 
   const backendSkills = [
@@ -108,7 +109,6 @@ const Skills = () => {
     { label: "HTML-to-PDF", highlight: false },
     { label: "Multi-Step Forms", highlight: false },
     { label: "Internationalization (i18n)", highlight: false },
-    { label: "Manual Testing", highlight: false },
     { label: "CI/CD Pipeline", highlight: false },
   ];
 
@@ -155,9 +155,7 @@ const Skills = () => {
                 className="skill-cat-icon"
                 style={{ background: "rgba(0,212,255,0.1)" }}
               >
-                <LuMonitorSmartphone
-                  color="#00d4ff"
-                />
+                <LuMonitorSmartphone color="#00d4ff" />
               </div>
               <div className="skill-cat-name">Frontend</div>
               {/* FIX: Badge signals primary strength to recruiter */}
@@ -185,9 +183,7 @@ const Skills = () => {
                 className="skill-cat-icon"
                 style={{ background: "rgba(16,185,129,0.1)" }}
               >
-                <LuServer
-                  color="#10b981"
-                />
+                <LuServer color="#10b981" />
               </div>
               <div className="skill-cat-name">Backend</div>
             </div>
@@ -213,9 +209,7 @@ const Skills = () => {
                 className="skill-cat-icon"
                 style={{ background: "rgba(124,58,237,0.1)" }}
               >
-                <LuDatabase 
-                  color="#8b5cf6"
-                />
+                <LuDatabase color="#8b5cf6" />
               </div>
               <div className="skill-cat-name">Database</div>
             </div>
@@ -241,9 +235,7 @@ const Skills = () => {
                 className="skill-cat-icon"
                 style={{ background: "rgba(245,158,11,0.1)" }}
               >
-                <LuWrench  
-                  color="#f59e0b"
-                />
+                <LuWrench color="#f59e0b" />
               </div>
               <div className="skill-cat-name">Tools &amp; Platforms</div>
             </div>
@@ -273,9 +265,7 @@ const Skills = () => {
                 className="skill-cat-icon"
                 style={{ background: "rgba(239,68,68,0.12)" }}
               >
-                <LuDatabase 
-                  color="#ef4444"
-                />
+                <LuDatabase color="#ef4444" />
               </div>
               <div className="skill-cat-name">Concepts &amp; Integrations</div>
               {/* FIX: Badge communicates rarity of these skills */}

@@ -14,9 +14,12 @@ import WhyHire from "./components/Home/WhyHire/WhyHire";
 import Contact from "./components/Contact/Contact";
 import Loader from "./components/Loader/Loader";
 import { Toaster } from "react-hot-toast";
+import { enableSourceProtection } from "./utils/sourceProtection";
 
 function App() {
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => enableSourceProtection(), []);
 
   useEffect(() => {
     if (loading) return;
@@ -46,7 +49,7 @@ function App() {
   useEffect(() => {
     const loaderTimer = setTimeout(() => {
       setLoading(false);
-    }, 2500);
+    }, 1000);
 
     return () => clearTimeout(loaderTimer);
   }, []);

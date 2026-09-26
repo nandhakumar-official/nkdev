@@ -6,7 +6,7 @@
 
 Building production-ready healthcare SaaS applications, scalable React experiences, and full-stack web solutions.
 
-🌐 **Live Portfolio:** https://nandhakumar-official.github.io/NKDEV/
+🌐 **Live Portfolio:** https://nandhakumar-official.github.io/nkdev/
 
 </div>
 
