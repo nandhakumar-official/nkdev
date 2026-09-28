@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
 
 // 🔧 CHANGE THESE 3 VALUES to your real ones
-const SITE_URL = "https://your-portfolio-domain.com"; // no trailing slash
-const OG_IMAGE = "../../public/og-image.png"; // put a 1200x630 image in /public
+const SITE_URL = "https://nandhakumar-official.github.io/nkdev"; // no trailing slash
+const OG_IMAGE = `${SITE_URL}/og-image.png`; // put a 1200x630 image in /public
 const LINKEDIN = "https://www.linkedin.com/in/your-profile";
 const GITHUB = "https://github.com/your-username";
 
