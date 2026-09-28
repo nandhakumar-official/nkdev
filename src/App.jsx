@@ -15,6 +15,7 @@ import Contact from "./components/Contact/Contact";
 import Loader from "./components/Loader/Loader";
 import { Toaster } from "react-hot-toast";
 import { enableSourceProtection } from "./utils/sourceProtection";
+import SEOFile from "./SEO/SEOFile";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -60,6 +61,7 @@ function App() {
 
   return (
     <>
+      <SEOFile />
       <CursorGlow />
       <Navbar />
       <Hero />
