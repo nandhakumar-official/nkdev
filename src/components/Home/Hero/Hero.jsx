@@ -14,6 +14,7 @@ import {
   FiPackage,
   FiUsers,
 } from "react-icons/fi";
+import { Helmet } from "react-helmet-async";
 const Hero = () => {
   const typedRef = useRef(null);
   const typedInstance = useRef(null);
@@ -99,141 +100,152 @@ const Hero = () => {
   const experience = getExperienceYears();
   const [year, decimal] = experience.split(".");
 
+  let description =
+    "Full Stack Developer with 2.8+ years of experience building production-ready healthcare SaaS with React, TypeScript, Node.js, Express and MongoDB. HIPAA workflows, Stripe payments, OCR and Figma-to-production delivery.";
+  let url = "https://nandhakumar-official.github.io/nkdev";
+  
   return (
-    <section id="hero" className="hero">
-      <div className="grid-bg"></div>
-      <div className="hero-grid">
-        {/* ── LEFT COLUMN ── */}
-        <div className="hero-left">
-          {/* FIX 2: Badge is now specific — not generic "available" */}
-          <div className="hero-badge" data-anim="left" data-delay="100">
-            <span className="badge-dot"></span>
-            <span>
-              Building production-ready healthcare SaaS products for US clients
-              · Open to React & Full Stack opportunities
-            </span>
-          </div>
+    <>
+      <Helmet>
+        <title> NandhaKumar C | Full Stack MERN Developer</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={url} />
+      </Helmet>
+      <section id="hero" className="hero">
+        <div className="grid-bg"></div>
+        <div className="hero-grid">
+          {/* ── LEFT COLUMN ── */}
+          <div className="hero-left">
+            {/* FIX 2: Badge is now specific — not generic "available" */}
+            <div className="hero-badge" data-anim="left" data-delay="100">
+              <span className="badge-dot"></span>
+              <span>
+                Building production-ready healthcare SaaS products for US
+                clients · Open to React & Full Stack opportunities
+              </span>
+            </div>
 
-          {/* Headline stays — it's good */}
-          <h1 className="hero-title" data-anim="left" data-delay="200">
-            Turning <span className="grad">Complex Workflows</span> into
-            Production-Ready Web Applications
-          </h1>
+            {/* Headline stays — it's good */}
+            <h1 className="hero-title" data-anim="left" data-delay="200">
+              Turning <span className="grad">Complex Workflows</span> into
+              Production-Ready Web Applications
+            </h1>
 
-          {/* Typed.js role line */}
-          <div className="typed-wrapper" data-anim="left" data-delay="250">
-            <span className="typed-label">I am a </span>
-            <span className="typed-text" ref={typedRef}></span>
-          </div>
+            {/* Typed.js role line */}
+            <div className="typed-wrapper" data-anim="left" data-delay="250">
+              <span className="typed-label">I am a </span>
+              <span className="typed-text" ref={typedRef}></span>
+            </div>
 
-          {/* FIX 3: Subtitle is now ONE punchy line — not a resume sentence */}
-          <p className="hero-sub" data-anim="up" data-delay="300">
-            Over 2.8+ years collaborating with product teams
-            {/* Over {getExperienceYears()} years collaborating with product teams */}
-            to design workflows, create Figma prototypes, build scalable React
-            applications, integrate APIs, and ship production-ready healthcare
-            SaaS platforms for US clients.
-          </p>
+            {/* FIX 3: Subtitle is now ONE punchy line — not a resume sentence */}
+            <p className="hero-sub" data-anim="up" data-delay="300">
+              Over 2.8+ years collaborating with product teams
+              {/* Over {getExperienceYears()} years collaborating with product teams */}
+              to design workflows, create Figma prototypes, build scalable React
+              applications, integrate APIs, and ship production-ready healthcare
+              SaaS platforms for US clients.
+            </p>
 
-          {/* FIX 4: CTAs now have clear visual hierarchy
+            {/* FIX 4: CTAs now have clear visual hierarchy
               - View Projects = PRIMARY (most valuable action)
               - Download Resume = SECONDARY outline
               - Contact Me REMOVED from hero — it lives at the bottom of the page
           */}
-          <div className="hero-btns" data-anim="up" data-delay="400">
-            <button className="btn-primary" onClick={scrollToProjects}>
-              View Projects →
-            </button>
-            <a href={resumeFile} download className="btn-outline">
-              ↓ Download Resume
-            </a>
-          </div>
+            <div className="hero-btns" data-anim="up" data-delay="400">
+              <button className="btn-primary" onClick={scrollToProjects}>
+                View Projects →
+              </button>
+              <a href={resumeFile} download className="btn-outline">
+                ↓ Download Resume
+              </a>
+            </div>
 
-          {/* FIX 5: Domain badges replace generic tech badges
+            {/* FIX 5: Domain badges replace generic tech badges
               These are differentiators. Any React dev can list React.js.
               Not every React dev has HIPAA + OCR + Stripe + US healthcare.
           */}
-          <div className="domain-badges" data-anim="up" data-delay="500">
-            {domainBadges.map(({ label, icon: Icon, color }) => (
-              <span key={label} className="domain-badge">
-                <Icon
-                  size={15}
-                  style={{
-                    color,
-                    flexShrink: 0,
-                  }}
-                />
-                {label}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* ── RIGHT COLUMN ── */}
-        <div className="hero-right">
-          {/* Avatar — 3D tilt effect kept, it's good */}
-          <div
-            className="avatar-wrap"
-            data-anim="right"
-            data-delay="200"
-            onMouseMove={handleMove}
-            onMouseLeave={resetMove}
-          >
-            <div className="avatar-ring"></div>
-            <div className="avatar-inner">
-              <img
-                src={nkLogo}
-                alt="Nandha Kumar C — Full Stack Developer"
-                className="hero-avatar rounded-full"
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                draggable={false}
-              />
+            <div className="domain-badges" data-anim="up" data-delay="500">
+              {domainBadges.map(({ label, icon: Icon, color }) => (
+                <span key={label} className="domain-badge">
+                  <Icon
+                    size={15}
+                    style={{
+                      color,
+                      flexShrink: 0,
+                    }}
+                  />
+                  {label}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* FIX 6: Stat cards kept here BUT removed from About section
+          {/* ── RIGHT COLUMN ── */}
+          <div className="hero-right">
+            {/* Avatar — 3D tilt effect kept, it's good */}
+            <div
+              className="avatar-wrap"
+              data-anim="right"
+              data-delay="200"
+              onMouseMove={handleMove}
+              onMouseLeave={resetMove}
+            >
+              <div className="avatar-ring"></div>
+              <div className="avatar-inner">
+                <img
+                  src={nkLogo}
+                  alt="Nandha Kumar C — Full Stack Developer"
+                  className="hero-avatar rounded-full"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  draggable={false}
+                />
+              </div>
+            </div>
+
+            {/* FIX 6: Stat cards kept here BUT removed from About section
               They only appear once now — duplication fixed.
               Changed ∞ card to something real and specific.
           */}
-          <div className="stat-cards" data-anim="right" data-delay="300">
-            <div className="stat-card">
-              <FiBriefcase className="stat-icon" />
-              <div className="stat-num">
-                {year}
-                <span>.{decimal}+</span>
-              </div>
+            <div className="stat-cards" data-anim="right" data-delay="300">
+              <div className="stat-card">
+                <FiBriefcase className="stat-icon" />
+                <div className="stat-num">
+                  {year}
+                  <span>.{decimal}+</span>
+                </div>
 
-              <div className="stat-label">Years Experience</div>
-            </div>
-            <div className="stat-card">
-              <FiPackage className="stat-icon" />
-              <div className="stat-num">
-                4<span>+</span>
+                <div className="stat-label">Years Experience</div>
               </div>
-              {/* FIX 7: "5+ Projects Built" → "4+ Products Delivered" — more specific and honest */}
-              <div className="stat-label">Products Delivered</div>
-            </div>
-            <div className="stat-card">
-              <FiGitBranch className="stat-icon" />
-              <div className="stat-num">
-                End<span>-to-End</span>
+              <div className="stat-card">
+                <FiPackage className="stat-icon" />
+                <div className="stat-num">
+                  4<span>+</span>
+                </div>
+                {/* FIX 7: "5+ Projects Built" → "4+ Products Delivered" — more specific and honest */}
+                <div className="stat-label">Products Delivered</div>
               </div>
+              <div className="stat-card">
+                <FiGitBranch className="stat-icon" />
+                <div className="stat-num">
+                  End<span>-to-End</span>
+                </div>
 
-              <div className="stat-label">Workflow Ownership</div>
-            </div>
-            <div className="stat-card">
-              <FiUsers className="stat-icon" />
-              <div className="stat-num">
-                1k<span>+</span>
+                <div className="stat-label">Workflow Ownership</div>
               </div>
-              <div className="stat-label">Users Supported</div>
+              <div className="stat-card">
+                <FiUsers className="stat-icon" />
+                <div className="stat-num">
+                  1k<span>+</span>
+                </div>
+                <div className="stat-label">Users Supported</div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
