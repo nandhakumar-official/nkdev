@@ -94,7 +94,7 @@ const Experience = () => {
       role: "Full Stack Developer",
       company: "Freelance",
       location: "Erode",
-      date: "Jul 2023 – Aug 2023",
+      date: "Aug 2023 – Oct 2023",
       tag: "Freelance · Sole Developer",
       tagStyle: {
         background: "rgba(16,185,129,0.1)",
