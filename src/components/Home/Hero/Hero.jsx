@@ -221,7 +221,7 @@ const Hero = () => {
               <div className="stat-card">
                 <FiPackage className="stat-icon" />
                 <div className="stat-num">
-                  4<span>+</span>
+                  5<span>+</span>
                 </div>
                 {/* FIX 7: "5+ Projects Built" → "4+ Products Delivered" — more specific and honest */}
                 <div className="stat-label">Products Delivered</div>
