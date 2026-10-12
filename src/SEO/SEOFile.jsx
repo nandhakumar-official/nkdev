@@ -10,7 +10,7 @@ const NAME = "NandhaKumar C";
 
 const SEOFile = ({
   title = `${NAME} | Full Stack MERN Developer | React, Node.js, TypeScript`,
-  description = "Full Stack Developer with 2.8+ years of experience building production-ready healthcare SaaS with React, TypeScript, Node.js, Express and MongoDB. HIPAA workflows, Stripe payments, OCR and Figma-to-production delivery.",
+  description = "Full Stack Developer with 2.5+ years of experience building production-ready healthcare SaaS with React, TypeScript, Node.js, Express and MongoDB. HIPAA workflows, Stripe payments, OCR and Figma-to-production delivery.",
   path = "/",
   image = OG_IMAGE,
 }) => {
