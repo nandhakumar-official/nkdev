@@ -135,13 +135,9 @@
 
 .hero-sub {
   font-size: clamp(0.95rem, 2vw, 1.1rem);
-
   line-height: 1.8;
-
   color: var(--muted);
-
   max-width: 560px;
-
   margin-bottom: 2rem;
 }
 

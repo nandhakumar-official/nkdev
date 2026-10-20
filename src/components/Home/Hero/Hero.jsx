@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import nkLogo from "../../../assets/Nandhakumar Chinnasami.png";
 import Typed from "typed.js";
 import "./Hero.css";
-import { getExperienceYears } from "../../../utils/experince.js";
+// import { getExperienceYears } from "../../../utils/experince.js";
 import {
   FiActivity,
   FiGitBranch,
@@ -97,13 +97,13 @@ const Hero = () => {
     },
   ];
 
-  const experience = getExperienceYears();
-  const [year, decimal] = experience.split(".");
+  // const experience = getExperienceYears();
+  // const [year, decimal] = experience.split(".");
 
   let description =
     "Full Stack Developer with 2.5+ years of experience building production-ready healthcare SaaS with React, TypeScript, Node.js, Express and MongoDB. HIPAA workflows, Stripe payments, OCR and Figma-to-production delivery.";
   let url = "https://nandhakumar-official.github.io/nkdev";
-  
+
   return (
     <>
       <Helmet>
@@ -139,9 +139,9 @@ const Hero = () => {
 
             {/* FIX 3: Subtitle is now ONE punchy line — not a resume sentence */}
             <p className="hero-sub" data-anim="up" data-delay="300">
-              Over 2.5+ years collaborating with product teams
+              Over 2.5+ years collaborating with product teams to &nbsp;
               {/* Over {getExperienceYears()} years collaborating with product teams */}
-              to design workflows, create Figma prototypes, build scalable React
+              design workflows, create Figma prototypes, build scalable React
               applications, integrate APIs, and ship production-ready healthcare
               SaaS platforms for US clients.
             </p>
@@ -211,9 +211,13 @@ const Hero = () => {
             <div className="stat-cards" data-anim="right" data-delay="300">
               <div className="stat-card">
                 <FiBriefcase className="stat-icon" />
-                <div className="stat-num">
+                {/* <div className="stat-num">
                   {year}
                   <span>.{decimal}+</span>
+                </div> */}
+                <div className="stat-num">
+                 2
+                  <span>.5+</span>
                 </div>
 
                 <div className="stat-label">Years Experience</div>
